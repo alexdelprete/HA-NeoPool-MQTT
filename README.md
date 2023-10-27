@@ -1,10 +1,9 @@
 # HA-NeoPool-MQTT
-Home Assistant MQTT integration for Tasmota NeoPool module
-(big thanks to @fdebrus for inspiring me and @curzon01 for the great support)
+Home Assistant MQTT integration for Tasmota NeoPool module.
 
-Since the native tasmota integration wasn't exporting all entities (switches, selects, numbers, etc.) to HA correctly, I decided to integrate all possible entities using purely HA's MQTT integration entities.
+Since the native tasmota integration wasn't exporting all entities (switches, selects, numbers, etc.) to HA correctly, I opened a [discussion](https://github.com/arendst/Tasmota/discussions/19811) on Tasmota's repo with NeoPool dev, and we decided for now to integrate all possible entities using purely HA's MQTT integration entities.
 
-Hoping one day to see Tasmota's HA integration natively creating ALL possible entity types. :)
+Hoping one day to see Tasmota's HA integration natively creating ALL possible entity types. That will probably happen when @curzon01 switches to Home Assistant. :)
 
 Pre-requirements:
 
@@ -12,6 +11,9 @@ Pre-requirements:
 2. Home Assistant MQTT integration properly working
 3. The integration is released as a Home Assistant package, check HA docs on how to configure HA for package usage
 4. The lovelace UI is extracted from the raw lovelace file, edit your raw lovelace config and paste the contents of the yaml file
+
+# Credits
+Big thanks to @fdebrus for inspiring me and @curzon01 for the great support.
 
 # Coffee
 
