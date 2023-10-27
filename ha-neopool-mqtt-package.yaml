@@ -1,6 +1,6 @@
 # HA Package: Tasmota NeoPool integration via MQTT
 # by @alexdelprete, with the great support of @curzon01 (NeoPool driver dev.)
-# https://github.com/arendst/Tasmota/discussions/19811
+# https://github.com/alexdelprete/HA-NeoPool-MQTT
 
 # Pre-requirement: Tasmota %topic% must be set to "SmartPool"
 
