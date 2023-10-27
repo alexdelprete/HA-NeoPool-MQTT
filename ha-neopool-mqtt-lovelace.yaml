@@ -1,0 +1,173 @@
+  - title: NeoPool
+    path: neopool
+    icon: mdi:pool-thermometer
+    type: custom:masonry-layout
+    panel: false
+    badges: []
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: gauge
+                entity: sensor.neopool_mqtt_water_temperature
+                min: 21
+                max: 35
+                name: Temperature
+                needle: true
+                severity:
+                  green: 24
+                  yellow: 29
+                  red: 32
+              - type: gauge
+                entity: sensor.neopool_mqtt_ph_data
+                needle: true
+                min: 7
+                name: pH
+                max: 8
+                severity:
+                  green: 7.2
+                  yellow: 7.6
+                  red: 7.8
+              - type: gauge
+                entity: sensor.neopool_mqtt_redox_data
+                needle: true
+                min: 600
+                max: 800
+                name: RedOX
+                unit: mV
+                severity:
+                  green: 650
+                  yellow: 769
+                  red: 790
+          - type: horizontal-stack
+            cards:
+              - graph: line
+                type: sensor
+                entity: sensor.neopool_mqtt_water_temperature
+                detail: 2
+                name: Temperature
+                icon: mdi:pool-thermometer
+              - graph: line
+                type: sensor
+                entity: sensor.neopool_mqtt_ph_data
+                detail: 2
+                name: pH
+                icon: mdi:pool
+                unit: pH
+              - graph: line
+                type: sensor
+                entity: sensor.neopool_mqtt_redox_data
+                detail: 2
+                name: RedOX
+                icon: mdi:pool
+                unit: mV
+          - entities:
+              - label: Filtration
+                type: section
+              - entity: switch.neopool_mqtt_filtration_state
+                icon: mdi:engine-outline
+              - entity: select.neopool_mqtt_filtration_mode
+                name: Mode
+                icon: mdi:auto-mode
+              - entity: select.neopool_mqtt_filtration_speed
+                name: Speed
+                icon: si:speedtest
+              - entity: select.neopool_mqtt_boost_mode
+                secondary_info: last-changed
+                icon: mdi:lightning-bolt-outline
+              - label: Setpoints
+                type: section
+              - entity: number.neopool_mqtt_ph_min
+                name: pH Min.
+              - entity: number.neopool_mqtt_ph_max
+                name: pH Max.
+              - entity: number.neopool_mqtt_redox_setpoint
+                name: Redox Setpoint
+              - entity: number.neopool_mqtt_hydrolysis_level
+                name: Hydrolysis Level
+                icon: mdi:water-opacity
+              - label: Accessories
+                type: section
+              - entity: switch.neopool_mqtt_light
+                secondary_info: none
+                icon: mdi:light-recessed
+            type: entities
+            show_header_toggle: false
+            theme: default
+            state_color: true
+      - type: entities
+        entities:
+          - entity: button.neopool_mqtt_clear_error_state
+            name: Clear Any Error State
+            icon: mdi:brush-variant
+          - label: Hydrolysis
+            type: section
+          - entity: sensor.neopool_mqtt_hydrolysis_state
+            name: State
+            icon: mdi:water-sync
+          - entity: sensor.neopool_mqtt_hydrolysis_data
+            name: Production
+            icon: mdi:water-opacity
+          - entity: binary_sensor.neopool_mqtt_hydrolysis_low_production
+            icon: mdi:alarm-light-outline
+            name: Production Low Alarm
+          - entity: binary_sensor.neopool_mqtt_hydrolysis_cover
+            name: Cover
+            icon: mdi:window-shutter-cog
+          - label: pH
+            type: section
+          - entity: sensor.neopool_mqtt_ph_state
+            name: Controller
+            icon: mdi:ph
+          - entity: sensor.neopool_mqtt_ph_pump
+            name: Pump
+            icon: mdi:engine-outline
+          - label: Power
+            type: section
+          - entity: sensor.neopool_mqtt_power_5v
+            name: 5V
+          - entity: sensor.neopool_mqtt_power_12v
+            name: 12V
+          - entity: sensor.neopool_mqtt_power_24_30v
+            name: 24-30V
+          - entity: sensor.neopool_mqtt_power_4_20ma
+            name: 4-20mA
+        show_header_toggle: false
+        state_color: true
+      - type: horizontal-stack
+        cards:
+          - type: entities
+            entities:
+              - label: Modules
+                type: section
+              - entity: binary_sensor.neopool_mqtt_ph_module
+                name: pH
+              - entity: binary_sensor.neopool_mqtt_redox_module
+                name: Redox
+              - entity: binary_sensor.neopool_mqtt_hydrolysis_module
+                name: Hydrolysis
+              - entity: binary_sensor.neopool_mqtt_chlorine_module
+                name: Chlorine
+              - entity: binary_sensor.neopool_mqtt_conductivity_module
+                name: Conductivity
+              - entity: binary_sensor.neopool_mqtt_ionization_module
+                name: Ionization
+              - label: Relays
+                type: section
+              - entity: binary_sensor.neopool_mqtt_relay_ph_state
+                name: pH
+              - entity: binary_sensor.neopool_mqtt_relay_filtering_state
+                name: Filtering
+              - entity: binary_sensor.neopool_mqtt_relay_light_state
+                name: Light
+              - entity: binary_sensor.neopool_mqtt_relay_aux1_state
+                name: AUX1
+              - entity: binary_sensor.neopool_mqtt_relay_aux2_state
+                name: AUX2
+              - entity: binary_sensor.neopool_mqtt_relay_aux3_state
+                name: AUX3
+              - entity: binary_sensor.neopool_mqtt_relay_aux4_state
+                name: AUX4
+              - entity: binary_sensor.neopool_mqtt_relay_acid_state
+                name: Acid
