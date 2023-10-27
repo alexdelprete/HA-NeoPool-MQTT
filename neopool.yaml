@@ -1,6 +1,7 @@
 # Tasmota NeoPool module integration via MQTT by @alexdelprete
 # https://github.com/arendst/Tasmota/discussions/19811
 
+
 mqtt:
   sensor:
     - unique_id: "neopool_mqtt_system_model"
