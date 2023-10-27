@@ -7,10 +7,11 @@ Hoping one day to see Tasmota's HA integration natively creating ALL possible en
 
 Pre-requirements:
 
-1. Tasmota `%topic%` must be set to `SmartPool`
-2. Home Assistant MQTT integration properly working
-3. The integration is released as a Home Assistant package, check HA docs on how to configure HA for package usage
-4. The lovelace UI is extracted from the raw lovelace file, edit your raw lovelace config and paste the contents of the yaml file
+1. This integration relies on NeoPool's extended commands for ESP32 devices, read [here](https://tasmota.github.io/docs/NeoPool/#esp32-adding-user-defined-neopool-commands-to-tasmota) for more info.
+2. Tasmota `%topic%` must be set to `SmartPool`
+3. Home Assistant MQTT integration properly working
+4. The integration is released as a Home Assistant package, check HA docs on how to configure HA for package usage
+5. The lovelace UI is extracted from the raw lovelace file, edit your raw lovelace config and paste the contents of the yaml file
 
 # Credits
 Big thanks to @fdebrus for inspiring me and @curzon01 for the great support.
