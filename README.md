@@ -1,7 +1,8 @@
 # HA-NeoPool-MQTT
 Home Assistant MQTT integration for Tasmota NeoPool module.
 
-![image](https://github.com/alexdelprete/HA-NeoPool-MQTT/assets/7027842/fd404be8-448e-441a-8352-a875f178dfd1)
+![image](https://github.com/alexdelprete/HA-NeoPool-MQTT/assets/7027842/2da88be0-e4c1-490f-974f-470d27912890)
+
 
 Since the native tasmota integration wasn't exporting all entities (switches, selects, numbers, etc.) to HA correctly, I opened a [discussion](https://github.com/arendst/Tasmota/discussions/19811) on Tasmota's repo with NeoPool dev, and we decided for now to integrate all possible entities using purely HA's MQTT integration entities.
 
