@@ -83,15 +83,16 @@
               - entity: number.neopool_mqtt_ph_max
                 name: pH Max.
               - entity: number.neopool_mqtt_redox_setpoint
-                name: Redox Setpoint
+                name: Redox
               - entity: number.neopool_mqtt_hydrolysis_level_2
-                name: Hydrolysis Level
+                name: Hydrolysis
                 icon: mdi:water-opacity
               - label: Accessories
                 type: section
               - entity: switch.neopool_mqtt_light
                 secondary_info: none
                 icon: mdi:light-recessed
+                name: Light
             type: entities
             show_header_toggle: false
             theme: default
