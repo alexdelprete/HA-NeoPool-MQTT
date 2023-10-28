@@ -12,12 +12,13 @@ Hoping one day to see Tasmota's HA integration natively creating ALL possible en
 
 Pre-requirements:
 
-1. This integration relies on NeoPool's extended commands for ESP32 devices, read [here](https://tasmota.github.io/docs/NeoPool/#esp32-adding-user-defined-neopool-commands-to-tasmota) for more info
-2. Disable Tasmota HA discovery integration: `SetOption19 0` or `Discover 0`, and if already present in HA, delete the discovered device and entities under Tasmota integration page
-3. Tasmota `%topic%` must be set to `SmartPool`
-4. Home Assistant MQTT integration properly configured and working
-5. The integration is released as a Home Assistant package, check HA docs on how to configure HA for package usage
-6. The lovelace UI is extracted from the raw lovelace file, edit your raw lovelace config and paste the contents of the yaml file
+1. The integration is based on NeoPool's extended commands for ESP32 devices, so tasmota32 firmware is required: read [here](https://tasmota.github.io/docs/NeoPool/#esp32-adding-user-defined-neopool-commands-to-tasmota) for more info
+2. The integration is currently based on latest dev release of Tasmota, because of recent modification requested to @curzon01 that he quickly implemented in [#19857](https://github.com/arendst/Tasmota/pull/19857), and has already been merged. Next stable release (after v13.2.0.1, current stable version) should contain #19857. I will update notes to specify the stable min. version once known.
+3. Disable Tasmota HA discovery integration: `SetOption19 0` or `Discover 0`, and if already present in HA, delete the discovered device and entities under Tasmota integration page
+4. Tasmota `%topic%` must be set to `SmartPool`
+5. Home Assistant MQTT integration properly configured and working
+6. The integration is released as a Home Assistant package, check HA docs on how to configure HA for package usage
+7. The lovelace UI is extracted from the raw lovelace file, edit your raw lovelace config and paste the contents of the yaml file
 
 # Credits
 Big thanks to @fdebrus for inspiring me and @curzon01 for the great support.
