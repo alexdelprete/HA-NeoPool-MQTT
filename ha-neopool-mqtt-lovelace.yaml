@@ -84,7 +84,7 @@
                 name: pH Max.
               - entity: number.neopool_mqtt_redox_setpoint
                 name: Redox Setpoint
-              - entity: number.neopool_mqtt_hydrolysis_level
+              - entity: number.neopool_mqtt_hydrolysis_level_2
                 name: Hydrolysis Level
                 icon: mdi:water-opacity
               - label: Accessories
@@ -123,15 +123,15 @@
           - entity: sensor.neopool_mqtt_ph_pump
             name: Pump
             icon: mdi:engine-outline
-          - label: Power
+          - label: Power Unit
             type: section
-          - entity: sensor.neopool_mqtt_power_5v
+          - entity: sensor.neopool_mqtt_powerunit_5v
             name: 5V
-          - entity: sensor.neopool_mqtt_power_12v
+          - entity: sensor.neopool_mqtt_powerunit_12v
             name: 12V
-          - entity: sensor.neopool_mqtt_power_24_30v
+          - entity: sensor.neopool_mqtt_powerunit_24_30v
             name: 24-30V
-          - entity: sensor.neopool_mqtt_power_4_20ma
+          - entity: sensor.neopool_mqtt_powerunit_4_20ma
             name: 4-20mA
         show_header_toggle: false
         state_color: true
