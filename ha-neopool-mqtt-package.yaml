@@ -147,6 +147,63 @@ mqtt:
       availability_topic: "tele/SmartPool/LWT"
       payload_available: "Online"
       payload_not_available: "Offline"
+    - unique_id: "neopool_mqtt_hydrolysis_runtime_total"
+      name: "NeoPool MQTT Hydrolysis Runtime Total"
+      device_class: duration
+      state_class: measurement
+      unit_of_measurement: "h"
+      state_topic: "tele/SmartPool/SENSOR"
+      value_template: >-
+        {% set duration = value_json.NeoPool.Hydrolysis.Runtime.Total %}
+        {{ (duration.split('T')[0] | int * 24) + (duration.split('T')[1].split(':')[0] | int) + (duration.split('T')[1].split(':')[1] | int / 60) | round(1) }}
+      availability_topic: "tele/SmartPool/LWT"
+      payload_available: "Online"
+      payload_not_available: "Offline"
+    - unique_id: "neopool_mqtt_hydrolysis_runtime_part"
+      name: "NeoPool MQTT Hydrolysis Runtime Part"
+      device_class: duration
+      state_class: measurement
+      unit_of_measurement: "h"
+      state_topic: "tele/SmartPool/SENSOR"
+      value_template: >-
+        {% set duration = value_json.NeoPool.Hydrolysis.Runtime.Part %}
+        {{ (duration.split('T')[0] | int * 24) + (duration.split('T')[1].split(':')[0] | int) + (duration.split('T')[1].split(':')[1] | int / 60) | round(1) }}
+      availability_topic: "tele/SmartPool/LWT"
+      payload_available: "Online"
+      payload_not_available: "Offline"
+    - unique_id: "neopool_mqtt_hydrolysis_runtime_pol1"
+      name: "NeoPool MQTT Hydrolysis Runtime Pol1"
+      device_class: duration
+      state_class: measurement
+      unit_of_measurement: "h"
+      state_topic: "tele/SmartPool/SENSOR"
+      value_template: >-
+        {% set duration = value_json.NeoPool.Hydrolysis.Runtime.Pol1 %}
+        {{ (duration.split('T')[0] | int * 24) + (duration.split('T')[1].split(':')[0] | int) + (duration.split('T')[1].split(':')[1] | int / 60) | round(1) }}
+      availability_topic: "tele/SmartPool/LWT"
+      payload_available: "Online"
+      payload_not_available: "Offline"
+    - unique_id: "neopool_mqtt_hydrolysis_runtime_pol2"
+      name: "NeoPool MQTT Hydrolysis Runtime Pol2"
+      device_class: duration
+      state_class: measurement
+      unit_of_measurement: "h"
+      state_topic: "tele/SmartPool/SENSOR"
+      value_template: >-
+        {% set duration = value_json.NeoPool.Hydrolysis.Runtime.Pol2 %}
+        {{ (duration.split('T')[0] | int * 24) + (duration.split('T')[1].split(':')[0] | int) + (duration.split('T')[1].split(':')[1] | int / 60) | round(1) }}
+      availability_topic: "tele/SmartPool/LWT"
+      payload_available: "Online"
+      payload_not_available: "Offline"
+    - unique_id: "neopool_mqtt_hydrolysis_runtime_pol_changes"
+      name: "NeoPool MQTT Hydrolysis Runtime Polarity Changes"
+      state_class: measurement
+      state_topic: "tele/SmartPool/SENSOR"
+      value_template: >-
+        {{ value_json.NeoPool.Hydrolysis.Runtime.Changes }}
+      availability_topic: "tele/SmartPool/LWT"
+      payload_available: "Online"
+      payload_not_available: "Offline"
 
   binary_sensor:
     - unique_id: "neopool_mqtt_modules_ph"
@@ -340,8 +397,10 @@ mqtt:
       optimistic: false
       value_template: >-
         {{ value_json.NeoPool.Filtration.State }}
-      payload_on: "1"
-      payload_off: "0"
+      payload_on: 1
+      payload_off: 0
+      state_on: 1
+      state_off: 0
       availability_topic: "tele/SmartPool/LWT"
       payload_available: "Online"
       payload_not_available: "Offline"
@@ -354,8 +413,10 @@ mqtt:
       optimistic: false
       value_template: >-
         {{ value_json.NeoPool.Light }}
-      payload_on: "1"
-      payload_off: "0"
+      payload_on: 1
+      payload_off: 0
+      state_on: 1
+      state_off: 0
       availability_topic: "tele/SmartPool/LWT"
       payload_available: "Online"
       payload_not_available: "Offline"

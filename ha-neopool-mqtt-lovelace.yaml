@@ -67,6 +67,7 @@
                 type: section
               - entity: switch.neopool_mqtt_filtration_state
                 icon: mdi:engine-outline
+                name: State
               - entity: select.neopool_mqtt_filtration_mode
                 name: Mode
                 icon: mdi:auto-mode
@@ -76,6 +77,7 @@
               - entity: select.neopool_mqtt_boost_mode
                 secondary_info: last-changed
                 icon: mdi:lightning-bolt-outline
+                name: Boost
               - label: Setpoints
                 type: section
               - entity: number.neopool_mqtt_ph_min
@@ -116,6 +118,17 @@
           - entity: binary_sensor.neopool_mqtt_hydrolysis_cover
             name: Cover
             icon: mdi:window-shutter-cog
+          - entity: sensor.neopool_mqtt_hydrolysis_runtime_total
+            name: Runtime Total
+          - entity: sensor.neopool_mqtt_hydrolysis_runtime_part
+            name: Runtime Part
+          - entity: sensor.neopool_mqtt_hydrolysis_runtime_pol1
+            name: Runtime Pol1
+          - entity: sensor.neopool_mqtt_hydrolysis_runtime_pol2
+            name: Runtime Pol2
+          - entity: sensor.neopool_mqtt_hydrolysis_runtime_polarity_changes
+            name: Polarity Changes
+            icon: mdi:swap-horizontal-circle-outline
           - label: pH
             type: section
           - entity: sensor.neopool_mqtt_ph_state
