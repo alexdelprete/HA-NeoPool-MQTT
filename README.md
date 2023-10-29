@@ -1,5 +1,5 @@
 # HA-NeoPool-MQTT
-Home Assistant MQTT integration for Tasmota NeoPool module.
+Home Assistant MQTT integration for Tasmota32 NeoPool module (only ESP32 devices).
 
 ![image](https://github.com/alexdelprete/HA-NeoPool-MQTT/assets/7027842/3f39dd99-d962-4720-b96f-f7ee4da78a83)
 
@@ -16,8 +16,9 @@ Pre-requirements:
 3. From Tasmota console, run these commands to optimize the device configuration:
 
     _This sets the SENSOR topic update frequency to 10s and sets the Retain flag so that HA entities are immediately available_
+    _It also ensures that Tasmota %topic% is set to `SmartPool`_
     ```console
-    BackLog TelePeriod 10; SensorRetain 1; SetOption4 1;
+    BackLog TelePeriod 10; SensorRetain 1; SetOption4 1; Topic SmartPool;
     ```
     _This rule keeps the Sugar Valley device clock in sync with Tasmota's device clock_
     ```console
@@ -27,10 +28,9 @@ Pre-requirements:
       ON Time#Set DO NPTime 0 ENDON
     Rule1 1
     ```
-4. Tasmota `%topic%` must be set to `SmartPool`
-5. Home Assistant MQTT integration properly configured and working
-6. The integration is released as a Home Assistant package, check HA docs on how to configure HA for package usage
-7. The lovelace UI is extracted from the raw lovelace file, edit your raw lovelace config and paste the contents of the yaml file
+4. Home Assistant MQTT integration properly configured and working
+5. The integration is released as a Home Assistant package, check HA docs on how to configure HA for package usage
+6. The lovelace UI is extracted from the raw lovelace file, edit your raw lovelace config and paste the contents of the yaml file
 
 # Credits
 Big thanks to @fdebrus for inspiring me and @curzon01 for the great support.
