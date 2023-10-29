@@ -16,9 +16,12 @@ Pre-requirements:
 3. From Tasmota console, run these commands to optimize the device configuration:
 
     _This sets the SENSOR topic update frequency to 10s and sets the Retain flag so that HA entities are immediately available_
-    _It also ensures that Tasmota %topic% is set to `SmartPool`_
     ```console
-    BackLog TelePeriod 10; SensorRetain 1; SetOption4 1; Topic SmartPool;
+    BackLog TelePeriod 10; SensorRetain 1;
+    ```
+    _This ensures that Tasmota %topic% is set to `SmartPool`_
+    ```console
+    BackLog SetOption4 1; Topic SmartPool;
     ```
     _This rule keeps the Sugar Valley device clock in sync with Tasmota's device clock_
     ```console
