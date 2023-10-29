@@ -14,11 +14,13 @@ Pre-requirements:
 1. The integration is based on NeoPool's extended commands for ESP32 devices, so tasmota32 firmware is required: read [here](https://tasmota.github.io/docs/NeoPool/#esp32-adding-user-defined-neopool-commands-to-tasmota) for more info
 2. The integration is currently based on latest dev release of Tasmota, because of recent modification requested to @curzon01 that he quickly implemented in [#19857](https://github.com/arendst/Tasmota/pull/19857), and has already been merged. Next stable release (after v13.2.0.1, current stable version) should contain #19857. I will update notes to specify the stable min. version once known.
 3. From Tasmota console, run these commands to optimize the device configuration:
-```
-# This sets the SENSOR topic update frequency to 10s and sets the Retain flag so that HA entities are immediately available
-BackLog TelePeriod 10; SensorRetain 1; SetOption4 1;
 
+# This sets the SENSOR topic update frequency to 10s and sets the Retain flag so that HA entities are immediately available
+```
+BackLog TelePeriod 10; SensorRetain 1; SetOption4 1;
+```
 # This rule keeps the Sugar Valley device clock in sync with Tasmota's device clock
+```
 Backlog Rule1 ""; Rule1 0; Rule1 4
 Rule1
   ON Time#Initialized DO NPTime 0 ENDON
