@@ -54,7 +54,6 @@
                 detail: 2
                 name: pH
                 icon: mdi:pool
-                unit: pH
               - graph: line
                 type: sensor
                 entity: sensor.neopool_mqtt_redox_data
