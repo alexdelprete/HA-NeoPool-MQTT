@@ -1,3 +1,4 @@
+# HA NeoPool MQTT v1.0
 # Tasmota NeoPool module integration via MQTT
 # by @alexdelprete
 # https://github.com/arendst/Tasmota/discussions/19811
@@ -523,10 +524,10 @@ mqtt:
       payload_not_available: "Offline"
     - unique_id: "neopool_mqtt_hydrolysis_setpoint"
       name: "NeoPool MQTT Hydrolysis Setpoint"
-      unit_of_measurement: "g/h"
+      unit_of_measurement: "% / g/h"
       state_topic: "tele/SmartPool/SENSOR"
       min: 0
-      max: 33
+      max: 100
       step: 1
       mode: slider
       command_topic: "cmnd/SmartPool/NPHydrolysis"
