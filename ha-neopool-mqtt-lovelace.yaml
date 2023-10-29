@@ -86,7 +86,7 @@
                 name: pH Max.
               - entity: number.neopool_mqtt_redox_setpoint
                 name: Redox
-              - entity: number.neopool_mqtt_hydrolysis_level_2
+              - entity: number.neopool_mqtt_hydrolysis_setpoint
                 name: Hydrolysis
                 icon: mdi:water-opacity
               - label: Accessories
