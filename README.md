@@ -34,7 +34,13 @@ Pre-requirements:
     ```
 4. Home Assistant MQTT integration properly configured and working
 5. The integration is released as a Home Assistant package, check HA docs on how to configure HA for package usage
-6. The lovelace UI is extracted from the raw lovelace file, edit your raw lovelace config and paste the contents of the yaml file
+6. The lovelace UI is extracted from the raw lovelace file, edit your raw lovelace config and paste the contents of the yaml file.
+   The UI makes use of the following cards, available through [HACS](https://github.com/hacs), that you need to install first:
+    - [mushroom](https://github.com/piitaya/lovelace-mushroom)
+    - [mini-graph-card](https://github.com/kalkih/mini-graph-card)
+    - [stack-in-card](https://github.com/custom-cards/stack-in-card)
+    - [text-divider-row](https://github.com/iantrich/text-divider-row)
+    - [custom-brand-icons](https://github.com/elax46/custom-brand-icons)
 
 # Credits
 Big thanks to @fdebrus for inspiring me and @curzon01 for the great support.
