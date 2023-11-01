@@ -15,11 +15,11 @@ Pre-requirements:
 2. The integration is currently based on latest dev release of Tasmota, because of recent modification requested to @curzon01 that he quickly implemented in [#19857](https://github.com/arendst/Tasmota/pull/19857), and has already been merged. Next stable release (after v13.2.0, current stable version) should contain #19857. I will update notes to specify the stable min. version once known.
 3. From Tasmota console, run these commands to optimize the device configuration:
 
-    _This sets the SENSOR topic update frequency to 10s and sets the Retain flag so that HA entities are immediately available_
+    _This sets the SENSOR topic update frequency to 20s and sets the Retain flag so that HA entities are immediately available_
     ```console
-    BackLog TelePeriod 10; SensorRetain 1;
+    BackLog TelePeriod 20; SensorRetain 1;
     ```
-    _This ensures that Tasmota %topic% is set to `SmartPool`_
+    _This ensures that Tasmota %topic% is set to `SmartPool`_ so you don't have to change all the topics in the package file
     ```console
     BackLog SetOption4 1; Topic SmartPool;
     ```
