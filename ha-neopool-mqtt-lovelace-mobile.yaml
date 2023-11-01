@@ -1,13 +1,13 @@
   - icon: mdi:pool
-    type: custom:masonry-layout
+    type: custom:vertical-layout
     layout:
-      width: 320
+      width: 350
     badges: []
     cards:
       - type: custom:stack-in-card
         cards:
           - type: custom:text-divider-row
-            text: HA NeoPool MQTT
+            text: HA NeoPool MQTT (mobile UI)
           - type: grid
             square: false
             columns: 3
@@ -132,8 +132,6 @@
                 entity: number.neopool_mqtt_hydrolysis_setpoint
                 name: Hydrolysis
                 icon: phu:pool-clorine
-      - type: custom:stack-in-card
-        cards:
           - type: custom:text-divider-row
             text: Hydrolysis Module Info
           - type: grid

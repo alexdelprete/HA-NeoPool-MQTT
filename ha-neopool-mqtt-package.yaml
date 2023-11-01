@@ -1,4 +1,4 @@
-# HA NeoPool MQTT v1.0
+# HA NeoPool MQTT v2.0
 # Tasmota NeoPool module integration via MQTT
 # by @alexdelprete
 # https://github.com/arendst/Tasmota/discussions/19811
@@ -277,8 +277,8 @@ mqtt:
       availability_topic: "tele/SmartPool/LWT"
       payload_available: "Online"
       payload_not_available: "Offline"
-    - unique_id: "neopool_mqtt_relay_filtering_state"
-      name: "NeoPool MQTT Relay Filtering State"
+    - unique_id: "neopool_mqtt_relay_filtration_state"
+      name: "NeoPool MQTT Relay Filtration State"
       state_topic: "tele/SmartPool/SENSOR"
       value_template: >-
         {{ value_json.NeoPool.Relay.State[1] }}
@@ -389,8 +389,8 @@ mqtt:
       payload_not_available: "Offline"
 
   switch:
-    - unique_id: "neopool_mqtt_filtration_state"
-      name: "NeoPool MQTT Filtration State"
+    - unique_id: "neopool_mqtt_filtration_switch"
+      name: "NeoPool MQTT Filtration Switch"
       device_class: switch
       command_topic: "cmnd/SmartPool/Backlog"
       state_topic: "tele/SmartPool/SENSOR"
@@ -405,8 +405,8 @@ mqtt:
       availability_topic: "tele/SmartPool/LWT"
       payload_available: "Online"
       payload_not_available: "Offline"
-    - unique_id: "neopool_mqtt_light"
-      name: "NeoPool MQTT Light"
+    - unique_id: "neopool_mqtt_light_switch"
+      name: "NeoPool MQTT Light Switch"
       device_class: switch
       command_topic: "cmnd/SmartPool/Backlog"
       state_topic: "tele/SmartPool/SENSOR"
@@ -416,6 +416,70 @@ mqtt:
         {{ value_json.NeoPool.Light }}
       payload_on: "NPLight 1;Delay 30;Teleperiod"
       payload_off: "NPLight 0;Delay 30;Teleperiod"
+      state_on: 1
+      state_off: 0
+      availability_topic: "tele/SmartPool/LWT"
+      payload_available: "Online"
+      payload_not_available: "Offline"
+    - unique_id: "neopool_mqtt_aux1_switch"
+      name: "NeoPool MQTT AUX1 Switch"
+      device_class: switch
+      command_topic: "cmnd/SmartPool/Backlog"
+      state_topic: "tele/SmartPool/SENSOR"
+      optimistic: false
+      retain: false
+      value_template: >-
+        {{ value_json.NeoPool.Relay.State[3] }}
+      payload_on: "NPAux1 1;Delay 30;Teleperiod"
+      payload_off: "NPAux1 0;Delay 30;Teleperiod"
+      state_on: 1
+      state_off: 0
+      availability_topic: "tele/SmartPool/LWT"
+      payload_available: "Online"
+      payload_not_available: "Offline"
+    - unique_id: "neopool_mqtt_aux2_switch"
+      name: "NeoPool MQTT AUX2 Switch"
+      device_class: switch
+      command_topic: "cmnd/SmartPool/Backlog"
+      state_topic: "tele/SmartPool/SENSOR"
+      optimistic: false
+      retain: false
+      value_template: >-
+        {{ value_json.NeoPool.Relay.State[4] }}
+      payload_on: "NPAux2 1;Delay 30;Teleperiod"
+      payload_off: "NPAux2 0;Delay 30;Teleperiod"
+      state_on: 1
+      state_off: 0
+      availability_topic: "tele/SmartPool/LWT"
+      payload_available: "Online"
+      payload_not_available: "Offline"
+    - unique_id: "neopool_mqtt_aux3_switch"
+      name: "NeoPool MQTT AUX3 Switch"
+      device_class: switch
+      command_topic: "cmnd/SmartPool/Backlog"
+      state_topic: "tele/SmartPool/SENSOR"
+      optimistic: false
+      retain: false
+      value_template: >-
+        {{ value_json.NeoPool.Relay.State[5] }}
+      payload_on: "NPAux3 1;Delay 30;Teleperiod"
+      payload_off: "NPAux3 0;Delay 30;Teleperiod"
+      state_on: 1
+      state_off: 0
+      availability_topic: "tele/SmartPool/LWT"
+      payload_available: "Online"
+      payload_not_available: "Offline"
+    - unique_id: "neopool_mqtt_aux4_switch"
+      name: "NeoPool MQTT AUX4 Switch"
+      device_class: switch
+      command_topic: "cmnd/SmartPool/Backlog"
+      state_topic: "tele/SmartPool/SENSOR"
+      optimistic: false
+      retain: false
+      value_template: >-
+        {{ value_json.NeoPool.Relay.State[6] }}
+      payload_on: "NPAux4 1;Delay 30;Teleperiod"
+      payload_off: "NPAux4 0;Delay 30;Teleperiod"
       state_on: 1
       state_off: 0
       availability_topic: "tele/SmartPool/LWT"
