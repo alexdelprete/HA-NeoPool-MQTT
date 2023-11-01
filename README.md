@@ -19,7 +19,7 @@ Pre-requirements:
     ```console
     BackLog TelePeriod 20; SensorRetain 1;
     ```
-    _This ensures that Tasmota %topic% is set to `SmartPool`_ so you don't have to change all the topics in the package file
+    _This ensures that Tasmota %topic% is set to `SmartPool` so you don't have to change all the topics in the package file_
     ```console
     BackLog SetOption4 1; Topic SmartPool;
     ```
