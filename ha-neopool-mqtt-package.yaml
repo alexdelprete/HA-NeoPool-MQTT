@@ -68,13 +68,26 @@ mqtt:
       payload_not_available: "Offline"
     - unique_id: "neopool_mqtt_hydrolysis_data"
       name: "NeoPool MQTT Hydrolysis Data"
+      unit_of_measurement: "%"
       icon: mdi:water-opacity
       state_class: measurement
       state_topic: "tele/SmartPool/SENSOR"
       value_template: >-
-        {{ value_json.NeoPool.Hydrolysis.Data }}
-      unit_of_measurement: "g/h"
+        {{ value_json.NeoPool.Hydrolysis.Percent.Data | round(0) }}
       availability_topic: "tele/SmartPool/LWT"
+      payload_available: "Online"
+      payload_not_available: "Offline"
+    - unique_id: "neopool_mqtt_hydrolysis_data_gh"
+      name: "NeoPool MQTT Hydrolysis Data (g/h)"
+      unit_of_measurement: "g/h"
+      icon: mdi:water-opacity
+      state_class: measurement
+      state_topic: "tele/SmartPool/SENSOR"
+      value_template: >-
+        {{ value_json.NeoPool.Hydrolysis.Data | round(0) }}
+      availability_topic: "tele/SmartPool/SENSOR"
+      availability_template: >-
+        {{ iif(value_json.NeoPool.Hydrolysis.Unit == "g/h", "Online", "Offline") }}
       payload_available: "Online"
       payload_not_available: "Offline"
     - unique_id: "neopool_mqtt_hydrolysis_state"
@@ -552,7 +565,7 @@ mqtt:
         {{ value_json.NeoPool.pH.Min }}
       command_topic: "cmnd/SmartPool/Backlog"
       command_template: >-
-        {{ 'NPpHMin ' + value | string +';Delay 30;Teleperiod' }}
+        {{ 'NPpHMin ' + value|string +';Delay 30;Teleperiod' }}
       optimistic: false
       retain: false
       availability_topic: "tele/SmartPool/LWT"
@@ -570,7 +583,7 @@ mqtt:
         {{ value_json.NeoPool.pH.Max }}
       command_topic: "cmnd/SmartPool/Backlog"
       command_template: >-
-        {{ 'NPpHMax ' + value | string +';Delay 30;Teleperiod' }}
+        {{ 'NPpHMax ' + value|string +';Delay 30;Teleperiod' }}
       optimistic: false
       retain: false
       availability_topic: "tele/SmartPool/LWT"
@@ -589,7 +602,7 @@ mqtt:
         {{ value_json.NeoPool.Redox.Setpoint }}
       command_topic: "cmnd/SmartPool/Backlog"
       command_template: >-
-        {{ 'NPRedox ' + value | string +';Delay 30;Teleperiod' }}
+        {{ 'NPRedox ' + value|string +';Delay 30;Teleperiod' }}
       optimistic: false
       retain: false
       availability_topic: "tele/SmartPool/LWT"
@@ -597,17 +610,17 @@ mqtt:
       payload_not_available: "Offline"
     - unique_id: "neopool_mqtt_hydrolysis_setpoint"
       name: "NeoPool MQTT Hydrolysis Setpoint"
-      unit_of_measurement: "% / g/h"
+      unit_of_measurement: "%"
       min: 0
       max: 100
       step: 1
       mode: slider
       state_topic: "tele/SmartPool/SENSOR"
       value_template: >-
-        {{ value_json.NeoPool.Hydrolysis.Setpoint }}
+        {{ value_json.NeoPool.Hydrolysis.Percent.Setpoint }}
       command_topic: "cmnd/SmartPool/Backlog"
       command_template: >-
-        {{ 'NPHydrolysis ' + value | string +';Delay 30;Teleperiod' }}
+        {{ 'NPHydrolysis ' + value|string +'%;Delay 30;Teleperiod' }}
       optimistic: false
       retain: false
       availability_topic: "tele/SmartPool/LWT"
