@@ -5,7 +5,7 @@ Home Assistant MQTT integration for Tasmota32 NeoPool module (only ESP32 devices
 
 Since the native tasmota integration wasn't exporting all entities (switches, selects, numbers, etc.) to HA correctly, I opened a [discussion](https://github.com/arendst/Tasmota/discussions/19811) on Tasmota's repo with NeoPool dev, and we decided for now to integrate all possible entities using purely HA's MQTT integration entities.
 
-So you can actually disable Tasmota's HA integration with `SetOption19 0` or `Discover 0` on the NeoPool device, because all the entities will be created through the package via MQTT.
+So you can actually disable Tasmota's HA integration with `SetOption19 1` or `Discover 0` on the NeoPool device, because all the entities will be created through the package via MQTT.
 
 Hoping one day to see Tasmota's HA integration natively creating ALL possible entity types. That will probably happen when @curzon01 switches to Home Assistant. :)
 
