@@ -25,11 +25,10 @@ Pre-requirements:
     ```
     _This rule keeps the Sugar Valley device clock in sync with Tasmota's device clock_
     ```console
-    Backlog Rule1 ""; Rule1 0; Rule1 4
     Rule1
       ON Time#Initialized DO NPTime 0 ENDON
       ON Time#Set DO NPTime 0 ENDON
-    Rule1 1
+    Backlog Rule1 4;Rule1 1
     ```
 4. Home Assistant MQTT integration properly configured and working
 5. The integration is released as a Home Assistant package, check HA docs on how to configure HA for package usage
