@@ -1,7 +1,7 @@
   - icon: mdi:pool
     type: custom:masonry-layout
     layout:
-      width: 320
+      width: 400
     badges: []
     cards:
       - type: custom:stack-in-card
@@ -100,6 +100,10 @@
                   action: more-info
                 double_tap_action:
                   action: none
+          - type: grid
+            columns: 3
+            square: false
+            cards:
               - type: custom:mushroom-select-card
                 entity: select.neopool_mqtt_filtration_mode
                 name: Mode
@@ -113,31 +117,81 @@
                 icon: mdi:lightning-bolt-outline
                 name: Boost
           - type: custom:text-divider-row
+            text: AUX Relays Switch
+          - type: grid
+            columns: 4
+            square: false
+            cards:
+              - type: custom:mushroom-entity-card
+                entity: switch.neopool_mqtt_aux1_switch
+                name: Aux1
+                tap_action:
+                  action: toggle
+                hold_action:
+                  action: more-info
+                double_tap_action:
+                  action: none
+              - type: custom:mushroom-entity-card
+                entity: switch.neopool_mqtt_aux2_switch
+                name: Aux2
+                tap_action:
+                  action: toggle
+                hold_action:
+                  action: more-info
+                double_tap_action:
+                  action: none
+              - type: custom:mushroom-entity-card
+                entity: switch.neopool_mqtt_aux3_switch
+                name: Aux3
+                tap_action:
+                  action: toggle
+                hold_action:
+                  action: more-info
+                double_tap_action:
+                  action: none
+              - type: custom:mushroom-entity-card
+                entity: switch.neopool_mqtt_aux4_switch
+                name: Aux4
+                tap_action:
+                  action: toggle
+                hold_action:
+                  action: more-info
+                double_tap_action:
+                  action: none
+          - type: custom:text-divider-row
             text: Setpoints
           - type: grid
             columns: 2
             square: false
             cards:
               - type: custom:mushroom-number-card
-                entity: number.neopool_mqtt_ph_min
-                name: pH Min.
-              - type: custom:mushroom-number-card
-                entity: number.neopool_mqtt_ph_max
-                name: pH Max.
+                entity: number.neopool_mqtt_hydrolysis_setpoint
+                name: Hydrolysis
+                icon: phu:pool-clorine
+                layout: horizontal
+                display_mode: slider
               - type: custom:mushroom-number-card
                 entity: number.neopool_mqtt_redox_setpoint
                 name: Redox
                 icon: phu:pool-electric-lvl
+                layout: horizontal
+                display_mode: slider
               - type: custom:mushroom-number-card
-                entity: number.neopool_mqtt_hydrolysis_setpoint
-                name: Hydrolysis
-                icon: phu:pool-clorine
+                entity: number.neopool_mqtt_ph_min
+                name: pH Min.
+                layout: horizontal
+                display_mode: slider
+              - type: custom:mushroom-number-card
+                entity: number.neopool_mqtt_ph_max
+                name: pH Max.
+                layout: horizontal
+                display_mode: slider
       - type: custom:stack-in-card
         cards:
           - type: custom:text-divider-row
             text: Hydrolysis Module Info
           - type: grid
-            columns: 2
+            columns: 3
             square: false
             cards:
               - type: custom:mushroom-entity-card
@@ -145,7 +199,7 @@
                 name: State
                 icon: mdi:water-sync
               - type: custom:mushroom-entity-card
-                entity: sensor.neopool_mqtt_hydrolysis_data
+                entity: sensor.neopool_mqtt_hydrolysis_data_g_h
                 name: Production
                 icon: phu:pool-clorine
               - type: custom:mushroom-entity-card
@@ -172,7 +226,7 @@
           - type: custom:text-divider-row
             text: pH Module Info
           - type: grid
-            columns: 2
+            columns: 3
             square: false
             cards:
               - type: custom:mushroom-entity-card
@@ -224,48 +278,6 @@
               - type: custom:mushroom-entity-card
                 entity: binary_sensor.neopool_mqtt_relay_acid_state
                 name: Acid
-          - type: custom:text-divider-row
-            text: AUX Relays Switch
-          - type: grid
-            columns: 4
-            square: false
-            cards:
-              - type: custom:mushroom-entity-card
-                entity: switch.neopool_mqtt_aux1_switch
-                name: Aux1
-                tap_action:
-                  action: toggle
-                hold_action:
-                  action: more-info
-                double_tap_action:
-                  action: none
-              - type: custom:mushroom-entity-card
-                entity: switch.neopool_mqtt_aux2_switch
-                name: Aux2
-                tap_action:
-                  action: toggle
-                hold_action:
-                  action: more-info
-                double_tap_action:
-                  action: none
-              - type: custom:mushroom-entity-card
-                entity: switch.neopool_mqtt_aux3_switch
-                name: Aux3
-                tap_action:
-                  action: toggle
-                hold_action:
-                  action: more-info
-                double_tap_action:
-                  action: none
-              - type: custom:mushroom-entity-card
-                entity: switch.neopool_mqtt_aux4_switch
-                name: Aux4
-                tap_action:
-                  action: toggle
-                hold_action:
-                  action: more-info
-                double_tap_action:
-                  action: none
           - type: custom:text-divider-row
             text: Power Unit Info
           - square: false

@@ -1,7 +1,8 @@
-# HA NeoPool MQTT v2.0
+# HA NeoPool MQTT v2.1
 # Tasmota NeoPool module integration via MQTT
 # by @alexdelprete
-# https://github.com/arendst/Tasmota/discussions/19811
+# repo: https://github.com/alexdelprete/HA-NeoPool-MQTT
+# starting discussion: https://github.com/arendst/Tasmota/discussions/19811
 
 mqtt:
   sensor:
