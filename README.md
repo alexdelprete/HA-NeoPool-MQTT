@@ -45,6 +45,9 @@ Pre-requirements:
 # Credits
 Big thanks to @fdebrus for inspiring me and @curzon01 for the great support.
 
+# Issues/Discussion
+Please open an issue in this repo if you're sure there's a bug. For discussions/general requests, please refer to [this](https://community.home-assistant.io/t/ha-neopool-mqtt-integration-of-tasmota-neopool-for-sugar-valley-hayward-aquarite-bayrol-devices/632517?u=alexdelprete) thread in HA community.
+
 # Coffee
 
 If you like this integration, I'll gladly accept some quality coffee, but please don't feel obliged. :)
