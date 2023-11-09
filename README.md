@@ -28,7 +28,7 @@ Pre-requirements:
     Rule1
       ON Time#Initialized DO NPTime 0 ENDON
       ON Time#Set DO NPTime 0 ENDON
-      ON System#Init NPTeleperiod 5 ENDON
+      ON System#Init DO NPTeleperiod 5 ENDON
     Backlog Rule1 4;Rule1 1
     ```
 4. Home Assistant MQTT integration properly configured and working
