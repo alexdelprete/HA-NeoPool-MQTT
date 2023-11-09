@@ -97,7 +97,9 @@ mqtt:
       name: "NeoPool MQTT Hydrolysis State"
       icon: mdi:water-opacity
       state_topic: "tele/SmartPool/SENSOR"
-      value_template: "{{ value_json.NeoPool.Hydrolysis.State }}"
+      value_template: >-
+        {% set values = { 'OFF':'Cell Inactive', 'FLOW':'Flow Alarm', 'POL1':'Pol1 active', 'POL2':'Pol2 active' } %}
+        {{ values[value_json.NeoPool.Hydrolysis.State | upper] | string if value_json.NeoPool.Hydrolysis.State | upper in values.keys() }}
       availability_topic: "tele/SmartPool/LWT"
       payload_available: "Online"
       payload_not_available: "Offline"
