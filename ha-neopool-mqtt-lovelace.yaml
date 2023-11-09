@@ -203,6 +203,10 @@
                 name: Production
                 icon: phu:pool-clorine
               - type: custom:mushroom-entity-card
+                entity: sensor.neopool_mqtt_hydrolysis_data
+                name: Production %
+                icon: phu:pool-clorine
+              - type: custom:mushroom-entity-card
                 entity: binary_sensor.neopool_mqtt_hydrolysis_low_production
                 icon: mdi:alarm-light-outline
                 name: Production Low
@@ -211,12 +215,12 @@
                 name: Cover
                 icon: mdi:window-shutter-cog
               - type: custom:mushroom-entity-card
-                entity: sensor.neopool_mqtt_hydrolysis_runtime_total
-                name: Runtime Total
-              - type: custom:mushroom-entity-card
                 entity: sensor.neopool_mqtt_hydrolysis_runtime_polarity_changes
                 name: Polarity Changes
                 icon: mdi:swap-horizontal-circle-outline
+              - type: custom:mushroom-entity-card
+                entity: sensor.neopool_mqtt_hydrolysis_runtime_total
+                name: Runtime Total
               - type: custom:mushroom-entity-card
                 entity: sensor.neopool_mqtt_hydrolysis_runtime_pol1
                 name: Runtime Pol1
