@@ -7,7 +7,7 @@ Since the native tasmota integration wasn't exporting all entities (switches, se
 
 All the NeoPool entities will be created through the package via HA's native MQTT entities.
 
-Pre-requirements:
+_**Pre-requirements**_:
 
 1. The integration is currently based on latest dev release of Tasmota that merged PR [#19973](https://github.com/arendst/Tasmota/pull/19973). Next stable release (after v13.2.0, current stable version) should contain it. I will update notes to specify the stable min. version once known.
 2. From Tasmota console, run these commands to optimize the device configuration:
