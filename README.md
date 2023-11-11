@@ -20,12 +20,12 @@ Pre-requirements:
     ```console
     Topic SmartPool
     ```
-    _This rule keeps the Sugar Valley device clock in sync with Tasmota's device clock and also sets NeoPool SENSOR topic to update every 5s for often changed (measurements) values_
+    _This rule keeps the Sugar Valley device clock in sync with Tasmota's device clock and also sets NeoPool SENSOR topic to update every 60s for often changed (measurements) values_
     ```console
     Rule1
       ON Time#Initialized DO NPTime 0 ENDON
       ON Time#Set DO NPTime 0 ENDON
-      ON System#Init DO NPTeleperiod 30 ENDON
+      ON System#Init DO NPTeleperiod 60 ENDON
     Backlog Rule1 4;Rule1 1
     ```
 3. Home Assistant MQTT integration properly configured and working
