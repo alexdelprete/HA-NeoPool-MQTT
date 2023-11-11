@@ -34,9 +34,7 @@ Pre-requirements:
     ```
 3. Home Assistant MQTT integration properly configured and working
 4. The integration is released as a Home Assistant package, check HA docs on how to configure HA for package usage
-5. The lovelace UI is extracted from the raw lovelace file, edit your raw lovelace config and paste the contents of the yaml file.
-   There are two lovelace files, one for pc/notebook display resolutions, the other for mobile resolutions (vertical layout).
-   The UI makes use of the following cards, available through [HACS](https://github.com/hacs), that you need to install first:
+5. The lovelace UI is extracted from the raw lovelace file, edit your raw lovelace config and paste the contents of the yaml file. There are two lovelace files, one for pc/notebook display resolutions, the other for mobile resolutions (vertical layout). The UI makes use of the following cards, available through [HACS](https://github.com/hacs), that you need to install first:
     - [layout-card](https://github.com/thomasloven/lovelace-layout-card)
     - [mushroom](https://github.com/piitaya/lovelace-mushroom)
     - [mini-graph-card](https://github.com/kalkih/mini-graph-card)
