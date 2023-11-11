@@ -9,7 +9,7 @@ All the NeoPool entities will be created through the package via HA's native MQT
 
 Pre-requirements:
 
-1. The integration is currently based on latest dev release of Tasmota, because of recent modification requested to @curzon01 that he quickly implemented in [#19857](https://github.com/arendst/Tasmota/pull/19857), and has already been merged. Next stable release (after v13.2.0, current stable version) should contain #19857. I will update notes to specify the stable min. version once known.
+1. The integration is currently based on latest dev release of Tasmota in PR [#19973](https://github.com/arendst/Tasmota/pull/19973), and has already been merged. Next stable release (after v13.2.0, current stable version) should contain it. I will update notes to specify the stable min. version once known.
 2. From Tasmota console, run these commands to optimize the device configuration:
 
     _This disables the device from being discovered by HA so it won't create unnecessary and duplicate entities for NeoPool_
