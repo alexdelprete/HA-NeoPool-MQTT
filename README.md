@@ -5,13 +5,17 @@ Home Assistant MQTT integration for Tasmota NeoPool module (ESP32 and ESP82xx de
 
 Since the native tasmota integration wasn't exporting all entities (switches, selects, numbers, etc.) to HA correctly, I opened a [discussion](https://github.com/arendst/Tasmota/discussions/19811) on Tasmota's repo with NeoPool dev, and we decided for now to integrate all possible entities using purely HA's MQTT integration entities.
 
-So you can actually disable Tasmota's HA integration with `SetOption19 1` or `Discover 0` on the NeoPool device, because all the entities will be created through the package via MQTT.
+All the NeoPool entities will be created through the package via HA's native MQTT entities.
 
 Pre-requirements:
 
 1. The integration is currently based on latest dev release of Tasmota, because of recent modification requested to @curzon01 that he quickly implemented in [#19857](https://github.com/arendst/Tasmota/pull/19857), and has already been merged. Next stable release (after v13.2.0, current stable version) should contain #19857. I will update notes to specify the stable min. version once known.
 2. From Tasmota console, run these commands to optimize the device configuration:
 
+    _This disables the device from being discovered by HA so it won't create unnecessary and duplicate entities for NeoPool_
+    ```console
+    Discover 0
+    ```
     _This sets Retain flag for telemetry topic so that HA entities are immediately available_
     ```console
     SensorRetain 1
