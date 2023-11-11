@@ -23,7 +23,7 @@ Pre-requirements:
     ```console
     Topic SmartPool
     ```
-    _This rule keeps the Sugar Valley device clock in sync with Tasmota's device clock_ and set NeoPool auto SENSOR topic update and with 5 sec delay for often changed (measured) values
+    _This rule keeps the Sugar Valley device clock in sync with Tasmota's device clock_ and also sets NeoPool SENSOR topic to update every 5s for often changed (measurements) values
     ```console
     Rule1
       ON Time#Initialized DO NPTime 0 ENDON
