@@ -1,5 +1,5 @@
 # HA-NeoPool-MQTT
-Home Assistant MQTT integration for Tasmota32 NeoPool module (only ESP32 devices).
+Home Assistant MQTT integration for Tasmota NeoPool module (ESP32 and ESP82xx devices).
 
 ![image](https://github.com/alexdelprete/HA-NeoPool-MQTT/assets/7027842/e20e21c4-02b5-4e24-8453-d991c2f03f52)
 
@@ -7,13 +7,10 @@ Since the native tasmota integration wasn't exporting all entities (switches, se
 
 So you can actually disable Tasmota's HA integration with `SetOption19 1` or `Discover 0` on the NeoPool device, because all the entities will be created through the package via MQTT.
 
-Hoping one day to see Tasmota's HA integration natively creating ALL possible entity types. That will probably happen when @curzon01 switches to Home Assistant. :)
-
 Pre-requirements:
 
-1. The integration is based on NeoPool's extended commands for ESP32 devices, so tasmota32 firmware is required: read [here](https://tasmota.github.io/docs/NeoPool/#esp32-adding-user-defined-neopool-commands-to-tasmota) for more info
-2. The integration is currently based on latest dev release of Tasmota, because of recent modification requested to @curzon01 that he quickly implemented in [#19857](https://github.com/arendst/Tasmota/pull/19857), and has already been merged. Next stable release (after v13.2.0, current stable version) should contain #19857. I will update notes to specify the stable min. version once known.
-3. From Tasmota console, run these commands to optimize the device configuration:
+1. The integration is currently based on latest dev release of Tasmota, because of recent modification requested to @curzon01 that he quickly implemented in [#19857](https://github.com/arendst/Tasmota/pull/19857), and has already been merged. Next stable release (after v13.2.0, current stable version) should contain #19857. I will update notes to specify the stable min. version once known.
+2. From Tasmota console, run these commands to optimize the device configuration:
 
     _This sets Retain flag for telemetry topic so that HA entities are immediately available_
     ```console
@@ -31,9 +28,9 @@ Pre-requirements:
       ON System#Init DO NPTeleperiod 30 ENDON
     Backlog Rule1 4;Rule1 1
     ```
-4. Home Assistant MQTT integration properly configured and working
-5. The integration is released as a Home Assistant package, check HA docs on how to configure HA for package usage
-6. The lovelace UI is extracted from the raw lovelace file, edit your raw lovelace config and paste the contents of the yaml file.
+3. Home Assistant MQTT integration properly configured and working
+4. The integration is released as a Home Assistant package, check HA docs on how to configure HA for package usage
+5. The lovelace UI is extracted from the raw lovelace file, edit your raw lovelace config and paste the contents of the yaml file.
    There are two lovelace files, one for pc/notebook display resolutions, the other for mobile resolutions (vertical layout).
    The UI makes use of the following cards, available through [HACS](https://github.com/hacs), that you need to install first:
     - [layout-card](https://github.com/thomasloven/lovelace-layout-card)
