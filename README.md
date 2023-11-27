@@ -1,5 +1,5 @@
 # HA-NeoPool-MQTT
-Home Assistant MQTT integration for Tasmota NeoPool module (ESP32 and ESP82xx devices).
+Home Assistant MQTT integration for Tasmota NeoPool module (ESP32 and ESP8266 devices).
 
 ![image](https://github.com/alexdelprete/HA-NeoPool-MQTT/assets/7027842/e20e21c4-02b5-4e24-8453-d991c2f03f52)
 
@@ -14,7 +14,9 @@ For flashing ESP32/ESP8266 I highly recommend using [ESP_Flasher](https://github
 
 _**Custom pre-configured Tasmota Build**_:
 
-When you custom compile your version, make sure to choose the dev branch and verify after flashing that version is at least `v13.2.0.2`. I will update notes to specify the stable min. version once known. When you custom compile your build, you'll need to use the `user_config_override.h` provided in this repository; this will automatically enable NeoPool and also configure all settings automatically without requiring to manually follow the manual steps of next section.
+When you custom compile your version, make sure to choose the dev branch and verify after flashing that version is at least `v13.2.0.2`. I will update notes to specify the stable min. version once known. When you custom compile your build, you'll need to use the `user_config_override.h` provided in the `compiler` folder of this repository; this will automatically enable NeoPool and also configure all settings automatically without requiring to manually follow the manual steps of next section.
+
+NOTE for beginners: if you have no idea about how to custom compile Tasmota, you can use the precompiled files in the `firmware` folder of the repository.
 
 The only thing you'll have to check is if the activated template is correct, you do this from Tasmota console executing command `Module`:
 ```console
@@ -29,7 +31,6 @@ If the result is not the one you see above, you need to issue the command `Modul
 ```
 
 In case you don't use the provided `user_config_override.h` file, you'll need to follow the Manual Configuration Steps section below.
-If you have no idea about how to custom compile Tasmota, you can use the precompiled files in the firmware folder of the repository.
 
 
 _**Manual configuration steps (only in case you didn't use the provided `user_config_override.h`**_:
