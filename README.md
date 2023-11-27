@@ -13,6 +13,7 @@ Since the NeoPool driver is not contained in precompiled binaries, you need to c
 For flashing ESP32/ESP8266 I highly recommend using [ESP_Flasher](https://github.com/Jason2866/ESP_Flasher) by @Jason2866, in v2.0.1 he kindly implemented by [my request](https://github.com/Jason2866/ESP_Flasher/issues/29) support for ESP32 high-speed baud rates (1.5Mb/s) for very quick and reliable flashing and he also added support for factory images.
 
 _**Custom pre-configured Tasmota Build**_:
+
 When you custom compile your version, make sure to choose the dev branch and verify after flashing that version is at least `v13.2.0.2`. I will update notes to specify the stable min. version once known. When you custom compile your build, you'll need to use the `user_config_override.h` provided in this repository; this will automatically enable NeoPool and also configure all settings automatically without requiring to manually follow the manual steps of next section.
 
 The only thing you'll have to check is if the activated template is correct, you do this from Tasmota console executing command `Module`:
