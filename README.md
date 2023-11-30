@@ -37,37 +37,37 @@ In case you don't use the provided `user_config_override.h` file, you'll need to
 
 1. From Tasmota console, run these commands to optimize the device configuration:
 
-_This sets Retain flag for telemetry topic so that HA entities are immediately available_
-```console
-SensorRetain 1
-```
-_This ensures that Tasmota %topic% is set to `SmartPool` so you don't have to change all the topics in the package file_
-_It also sets device name, friendly name and mqtt client name (for easier identification in the broker)_
-```console
-Backlog Topic SmartPool; DeviceName SmartPool; FriendlyName SmartPool; MqttClient SmartPool; 
-```
-_Define a rule to keep the Sugar Valley device clock in sync with Tasmota's device clock and also sets NeoPool SENSOR topic to update every 60s for often changed (measurements) values_
-_This also disables the device from being discovered by HA so it won't create unnecessary and duplicate entities for NeoPool_
-```console
-Rule1 ON Time#Initialized DO NPTime 0 ENDON ON Time#Set DO NPTime 0 ENDON ON System#Boot DO Backlog Discover 0; NPTeleperiod 60; ENDON
-```
-_Configure user template for GPIO definition based on device type_
-Atom Lite + Tail485 (GPIO26: NeoPool TX / GPIO32: NeoPool RX)
-```console
-Template {"NAME":"NeoPool Atom Lite + Tail485","GPIO":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,1,0,0,6976,0,0,0,0,0,7008,1,0,0,0,0,0,0],"FLAG":0,"BASE":1}
-```
-AtomS3 Lite + Atomic RS485 Base (GPIO19: NeoPool TX - GPIO22: NeoPool RX)
-```console
-Template {"NAME":"NeoPool AtomS3 Lite + Atomic RS485 Base","GPIO":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6976,0,0,7008,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"FLAG":0,"BASE":1}
-```
-Other ESP32/ESP8266 devices (GPIO3: NeoPool TX - GPIO1: NeoPool RX):
-```console
-Template {"NAME":"NeoPool ESP32/ESP8266","GPIO":[1,6528,1,6496,1,1,0,0,1,1,1,1,1,1],"FLAG":0,"BASE":18}
-```
-_Activate Rule1 and User GPIO Template_
-```console
-Backlog Rule1 4;Rule1 1; Module 0;
-```
+  _This sets Retain flag for telemetry topic so that HA entities are immediately available_
+  ```console
+  SensorRetain 1
+  ```
+  _This ensures that Tasmota %topic% is set to `SmartPool` so you don't have to change all the topics in the package file_
+  _It also sets device name, friendly name and mqtt client name (for easier identification in the broker)_
+  ```console
+  Backlog Topic SmartPool; DeviceName SmartPool; FriendlyName SmartPool; MqttClient SmartPool; 
+  ```
+  _Define a rule to keep the Sugar Valley device clock in sync with Tasmota's device clock and also sets NeoPool SENSOR topic to update every 60s for often changed (measurements) values_
+  _This also disables the device from being discovered by HA so it won't create unnecessary and duplicate entities for NeoPool_
+  ```console
+  Rule1 ON Time#Initialized DO NPTime 0 ENDON ON Time#Set DO NPTime 0 ENDON ON System#Boot DO Backlog Discover 0; NPTeleperiod 60; ENDON
+  ```
+  _Configure user template for GPIO definition based on device type_
+  Atom Lite + Tail485 (GPIO26: NeoPool TX / GPIO32: NeoPool RX)
+  ```console
+  Template {"NAME":"NeoPool Atom Lite + Tail485","GPIO":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,1,0,0,6976,0,0,0,0,0,7008,1,0,0,0,0,0,0],"FLAG":0,"BASE":1}
+  ```
+  AtomS3 Lite + Atomic RS485 Base (GPIO19: NeoPool TX - GPIO22: NeoPool RX)
+  ```console
+  Template {"NAME":"NeoPool AtomS3 Lite + Atomic RS485 Base","GPIO":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6976,0,0,7008,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"FLAG":0,"BASE":1}
+  ```
+  Other ESP32/ESP8266 devices (GPIO3: NeoPool TX - GPIO1: NeoPool RX):
+  ```console
+  Template {"NAME":"NeoPool ESP32/ESP8266","GPIO":[1,6528,1,6496,1,1,0,0,1,1,1,1,1,1],"FLAG":0,"BASE":18}
+  ```
+  _Activate Rule1 and User GPIO Template_
+  ```console
+  Backlog Rule1 4;Rule1 1; Module 0;
+  ```
 3. Home Assistant MQTT integration properly configured and working
 4. The integration is released as a Home Assistant package, check HA docs on how to configure HA for package usage
 5. The lovelace UI is extracted from the raw lovelace file, edit your raw lovelace config and paste the contents of the yaml file. There are two lovelace files, one for pc/notebook display resolutions, the other for mobile resolutions (vertical layout). The UI makes use of the following cards, available through [HACS](https://github.com/hacs), that you need to install first:
