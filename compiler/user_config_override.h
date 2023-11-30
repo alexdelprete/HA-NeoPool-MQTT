@@ -103,11 +103,13 @@ Examples :
 #endif
 
 #ifdef ESP32
-  // Use this for Atom Lite + Tail485 (GPIO26: NeoPool TX - GPIO32: NeoPool RX)
-  #define USER_TEMPLATE "{\"NAME\":\"NeoPool Atom Lite + Tail485\",\"GPIO\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,1,0,0,6976,0,0,0,0,0,7008,1,0,0,0,0,0,0],\"FLAG\":0,\"BASE\":1}"
-
-  // Use this for AtomS3 Lite + Atomic RS485 Base (GPIO19: NeoPool TX - GPIO22: NeoPool RX)
-  // #define USER_TEMPLATE "{\"NAME\":\"AtomS3 Lite + Atomic RS485 Base\",\"GPIO\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6976,0,0,7008,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],\"FLAG\":0,\"BASE\":1}"
+  #ifdef CONFIG_IDF_TARGET_ESP32S3
+    // Use this for AtomS3 Lite + Atomic RS485 Base (GPIO19: NeoPool TX - GPIO22: NeoPool RX)
+    #define USER_TEMPLATE "{\"NAME\":\"AtomS3 Lite + Atomic RS485 Base\",\"GPIO\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6976,0,0,7008,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],\"FLAG\":0,\"BASE\":1}"
+  #else
+    // Use this for Atom Lite + Tail485 (GPIO26: NeoPool TX - GPIO32: NeoPool RX)
+    #define USER_TEMPLATE "{\"NAME\":\"NeoPool Atom Lite + Tail485\",\"GPIO\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,1,0,0,6976,0,0,0,0,0,7008,1,0,0,0,0,0,0],\"FLAG\":0,\"BASE\":1}"
+  #endif // CONFIG_IDF_TARGET_ESP32S3
 #endif  // ESP32
 
 #ifdef ESP8266
