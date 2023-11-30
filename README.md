@@ -51,14 +51,18 @@ In case you don't use the provided `user_config_override.h` file, you'll need to
     ```console
     Rule1 ON Time#Initialized DO NPTime 0 ENDON ON Time#Set DO NPTime 0 ENDON ON System#Boot DO Backlog Discover 0; NPTeleperiod 60; ENDON
     ```
-    _Configure user template for GPIO definition_
-   Atom Lite (GPIO26: NeoPool TX / GPIO32: NeoPool RX)
+    _Configure user template for GPIO definition based on device type_
+    Atom Lite + Tail485 (GPIO26: NeoPool TX / GPIO32: NeoPool RX)
     ```console
-   Template {"NAME":"NeoPool Atom Lite + Tail485","GPIO":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,1,0,0,6976,0,0,0,0,0,7008,1,0,0,0,0,0,0],"FLAG":0,"BASE":1}
+    Template {"NAME":"NeoPool Atom Lite + Tail485","GPIO":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,1,0,0,6976,0,0,0,0,0,7008,1,0,0,0,0,0,0],"FLAG":0,"BASE":1}
     ```
-    ESP32/ESP82xx devices (GPIO1: NeoPool RX / GPIO3: NeoPool TX):
+    AtomS3 Lite + Atomic RS485 Base (GPIO19: NeoPool TX - GPIO22: NeoPool RX)
     ```console
-   Template {"NAME":"NeoPool ESP32/ESP82xx","GPIO":[1,6528,1,6496,1,1,0,0,1,1,1,1,1,1],"FLAG":0,"BASE":18}
+    Template {"NAME":"NeoPool AtomS3 Lite + Atomic RS485 Base","GPIO":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6976,0,0,7008,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"FLAG":0,"BASE":1}
+    ```
+    Other ESP32/ESP8266 devices (GPIO3: NeoPool TX - GPIO1: NeoPool RX):
+    ```console
+    Template {"NAME":"NeoPool ESP32/ESP8266","GPIO":[1,6528,1,6496,1,1,0,0,1,1,1,1,1,1],"FLAG":0,"BASE":18}
     ```
     _Activate Rule1 and User GPIO Template_
     ```console
