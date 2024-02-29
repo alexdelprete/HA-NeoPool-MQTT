@@ -69,7 +69,7 @@ In case you don't use the provided `user_config_override.h` file, you'll need to
     Backlog Rule1 4;Rule1 1; Module 0;
     ```
 3. Home Assistant MQTT integration properly configured and working
-4. The integration is released as a Home Assistant package, check HA docs on how to configure HA for package usage
+4. The integration is released as a Home Assistant package, check HA docs on how to configure HA for package usage. Please note that this integration will not create a device, only entities.
 5. The lovelace UI is extracted from the raw lovelace file, edit your raw lovelace config and paste the contents of the yaml file. There are two lovelace files, one for pc/notebook display resolutions, the other for mobile resolutions (vertical layout). The UI makes use of the following cards, available through [HACS](https://github.com/hacs), that you need to install first:
     - [layout-card](https://github.com/thomasloven/lovelace-layout-card)
     - [mushroom](https://github.com/piitaya/lovelace-mushroom)
