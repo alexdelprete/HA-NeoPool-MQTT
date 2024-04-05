@@ -12,8 +12,8 @@ To flash your ESP use the file matching your ESP chip type:
 
 To initial flash an ESP32/ESP8266 it is recommended using [ESP_Flasher](https://github.com/Jason2866/ESP_Flasher).
 
-For ESP8266 use the binary  `.bin` file when initial flashing.  
-To update an existing Tasmota ESP8266 device (e. g. via WebUI **Firmware Upgrade**/**Upgrade by file upload**) you can use both file types (`.bin` and `.bin.gz`).
+For ESP8266 use the binary  `NeoPool_ESP8266_tasmota.bin` file when initial flashing.  
+To update an existing Tasmota ESP8266 device (e. g. via WebUI **Firmware Upgrade**/**Upgrade by file upload**) you can use both file types (`NeoPool_ESP8266_tasmota.bin` and `NeoPool_ESP8266_tasmota.bin.gz`).
 
-For ESP32 use the file with `factory` in the filename matching your chip type.  
-For updating an existing Tasmota ESP32 device (e. g. via WebUI **Firmware Upgrade**/**Upgrade by file upload**) use the binary **without** `factory` in the filename.
+For ESP32 use the file with `factory.bin` in the filename matching your chip type.  
+For updating an existing Tasmota ESP32 device (e. g. via WebUI **Firmware Upgrade**/**Upgrade by file upload**) use one of the ESP32 binary **without** `factory` in the filename.
