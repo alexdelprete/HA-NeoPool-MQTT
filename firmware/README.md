@@ -2,18 +2,26 @@
 
 This folder contains [Tasmota](https://github.com/arendst/Tasmota) binary files including the [driver for Sugar Valley NeoPool Controller](https://tasmota.github.io/docs/NeoPool/).
 
-The binaries are based on Tasmota v13.4.0.4 development.
+The binaries are based on [Tasmota v13.4.0.4 development (commit 54e4aba)](https://github.com/arendst/Tasmota/tree/54e4aba750d6c3242a33303f7a16ee2b16de3dd0).
 
-To flash your ESP use the file matching your ESP chip type:
+To initial flash an ESP32/ESP8266 it is recommended using [ESP_Flasher](https://github.com/Jason2866/ESP_Flasher) and the file matching your ESP chip type (for ESP32 the files **with** `factory` in the filename):
 
-- **NeoPool_ESP8266_tasmota\*** for all ESP8266 chip types
-- **NeoPool_ESP32_tasmota32\*** for ESP32 chip types (like M5Stack Atom Lite)
-- **NeoPool_ESP32S3_tasmota32s3\*** for ESP32 S3 chip types (like M5Stack Atom S3 Lite)
+- **NeoPool_ESP8266_tasmota.bin**  
+all ESP8266 chip types
+- **NeoPool_ESP32_tasmota32.factory.bin**  
+all ESP32 chip types (like M5Stack [Atom Lite](https://docs.m5stack.com/en/core/ATOM%20Lite))
+- **NeoPool_ESP32S3_tasmota32s3.factory.bin**  
+all ESP32 S3 chip types (like M5Stack [Atom S3](https://docs.m5stack.com/en/core/AtomS3) or [Atom S3 Lite](https://docs.m5stack.com/en/core/AtomS3%20Lite))
+- **NeoPool_ESP32C3_tasmota32c3.factory.bin**  
+all ESP32 C3 chip types
 
-To initial flash an ESP32/ESP8266 it is recommended using [ESP_Flasher](https://github.com/Jason2866/ESP_Flasher).
+To update an existing Tasmota device via WebUI **Firmware Upgrade**/**Upgrade by file upload** use  (for ESP32 the files **without** `factory` in the filename):
 
-For ESP8266 use the binary  `NeoPool_ESP8266_tasmota.bin` file when initial flashing.  
-To update an existing Tasmota ESP8266 device (e. g. via WebUI **Firmware Upgrade**/**Upgrade by file upload**) you can use both file types (`NeoPool_ESP8266_tasmota.bin` and `NeoPool_ESP8266_tasmota.bin.gz`).
-
-For ESP32 use the file with `factory.bin` in the filename matching your chip type.  
-For updating an existing Tasmota ESP32 device (e. g. via WebUI **Firmware Upgrade**/**Upgrade by file upload**) use one of the ESP32 binary **without** `factory` in the filename.
+- **NeoPool_ESP8266_tasmota.bin.gz**  
+all ESP8266 chip types
+- **NeoPool_ESP32_tasmota32.bin**  
+all ESP32 chip types (like M5Stack [Atom Lite](https://docs.m5stack.com/en/core/ATOM%20Lite))
+- **NeoPool_ESP32S3_tasmota32s3.bin**  
+all ESP32 S3 chip types (like M5Stack [Atom S3](https://docs.m5stack.com/en/core/AtomS3) or [Atom S3 Lite](https://docs.m5stack.com/en/core/AtomS3%20Lite))
+- **NeoPool_ESP32C3_tasmota32c3.bin**  
+all ESP32 C3 chip types
