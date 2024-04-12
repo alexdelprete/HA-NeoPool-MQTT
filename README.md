@@ -80,7 +80,6 @@ In case you don't use the provided `user_config_override.h` file, you'll need to
 4. The lovelace UI is extracted from the raw lovelace file, edit your raw lovelace config and paste the contents of the yaml file. There are two lovelace files:
     - `ha_neopool_mqtt_lovelace.yaml` for pc/notebook display resolutions
     - `ha_neopool_mqtt_lovelace_responsive.yaml` using standard HA cards without resolution limitations  
-
 <img src="https://github.com/alexdelprete/HA-NeoPool-MQTT/blob/main/.media/install-lovelace.gif" alt="install lovelace" width="240"/>
 
 The UI makes use of the following cards, available through [HACS](https://github.com/hacs), that you need to install first:
