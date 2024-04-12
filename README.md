@@ -1,14 +1,21 @@
 # HA-NeoPool-MQTT
 Home Assistant MQTT integration for Tasmota NeoPool module (ESP32 and ESP8266 devices).
 
+`ha_neopool_mqtt_lovelace.yaml`:
+
 ![image](https://github.com/alexdelprete/HA-NeoPool-MQTT/assets/7027842/e20e21c4-02b5-4e24-8453-d991c2f03f52)
 
-Since the native tasmota integration wasn't exporting all entities (switches, selects, numbers, etc.) to HA correctly, I opened a [discussion](https://github.com/arendst/Tasmota/discussions/19811) on Tasmota's repo with NeoPool dev, and we decided for now to integrate all possible entities using purely HA's MQTT integration entities.
+`ha_neopool_mqtt_lovelace_responsive.yaml`:
 
-All the NeoPool entities will be created through the provided package via HA's native MQTT entities.
+<img src="https://github.com/curzon01/HA-NeoPool-MQTT/blob/dev/.media/responsive1.png" alt="Responsive1" width="200"/> <img src="https://github.com/curzon01/HA-NeoPool-MQTT/blob/dev/.media/responsive2.png" alt="Responsive2" width="200"/> <img src="https://github.com/curzon01/HA-NeoPool-MQTT/blob/dev/.media/responsive3.png" alt="Responsive3" width="200"/> <img src="https://github.com/curzon01/HA-NeoPool-MQTT/blob/dev/.media/responsive4.png" alt="Responsive4" width="200"/>
 
-The integration is currently based on Tasmota dev release `v13.2.0.2` (that merged PR [#19973](https://github.com/arendst/Tasmota/pull/19973)). Next stable release (after `v13.2.0`, current stable version) should contain it.
-Since the NeoPool driver is not contained in precompiled binaries, you need to compile your own build.
+Since the native Tasmota integration does only support default entities to HA ([switches, selects, numbers, etc.](https://tasmota.github.io/docs/Home-Assistant/#supported-entities)), I opened a [discussion](https://github.com/arendst/Tasmota/discussions/19811) on Tasmota's repo with NeoPool dev, and we decided for now to integrate all possible entities using purely HA's MQTT integration entities.
+
+All the NeoPool entities will be created through the provided package via HA's native MQTT entities (Note: It does not created a new device, it creates entities only).
+
+This integration needs at minimum Tasmota `v13.3.0`.
+
+Since the NeoPool driver is not contained in precompiled binaries, you need to compile your own build or use one of the precompiled binary from the `firmware` folder.
 
 For flashing ESP32/ESP8266 I highly recommend using [ESP_Flasher](https://github.com/Jason2866/ESP_Flasher) by @Jason2866, in v2.0.1 he kindly implemented by [my request](https://github.com/Jason2866/ESP_Flasher/issues/29) support for ESP32 high-speed baud rates (1.5Mb/s) for very quick and reliable flashing and he also added support for factory images.
 
@@ -70,13 +77,18 @@ In case you don't use the provided `user_config_override.h` file, you'll need to
     ```
 3. Home Assistant MQTT integration properly configured and working
 4. The integration is released as a Home Assistant package, check HA docs on how to configure HA for package usage. Please note that this integration will not create a device, only entities.
-5. The lovelace UI is extracted from the raw lovelace file, edit your raw lovelace config and paste the contents of the yaml file. There are two lovelace files, one for pc/notebook display resolutions, the other for mobile resolutions (vertical layout). The UI makes use of the following cards, available through [HACS](https://github.com/hacs), that you need to install first:
-    - [layout-card](https://github.com/thomasloven/lovelace-layout-card)
-    - [mushroom](https://github.com/piitaya/lovelace-mushroom)
-    - [mini-graph-card](https://github.com/kalkih/mini-graph-card)
-    - [stack-in-card](https://github.com/custom-cards/stack-in-card)
-    - [text-divider-row](https://github.com/iantrich/text-divider-row)
-    - [custom-brand-icons](https://github.com/elax46/custom-brand-icons)
+5. The lovelace UI is extracted from the raw lovelace file, edit your raw lovelace config and paste the contents of the yaml file. There are two lovelace files:
+    - `ha_neopool_mqtt_lovelace.yaml` for pc/notebook display resolutions
+    - `ha_neopool_mqtt_lovelace_responsive.yaml` using standard HA cards without resolution limitations  
+
+The UI makes use of the following cards, available through [HACS](https://github.com/hacs), that you need to install first:
+
+- [layout-card](https://github.com/thomasloven/lovelace-layout-card)
+- [mini-graph-card](https://github.com/kalkih/mini-graph-card)
+- [custom-brand-icons](https://github.com/elax46/custom-brand-icons)
+- [mushroom](https://github.com/piitaya/lovelace-mushroom) (for the pc/notebook layout only)
+- [stack-in-card](https://github.com/custom-cards/stack-in-card) (for the pc/notebook layout only)
+- [text-divider-row](https://github.com/iantrich/text-divider-row) (for the pc/notebook layout only)
 
 # Credits
 Big thanks to @fdebrus for inspiring me and @curzon01 for the great support.
