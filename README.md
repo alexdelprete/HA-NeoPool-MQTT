@@ -1,15 +1,15 @@
 # HA-NeoPool-MQTT
 Home Assistant MQTT integration for Tasmota NeoPool module (ESP32 and ESP8266 devices).
 
-`ha_neopool_mqtt_lovelace.yaml`:
+Notebook/PC Layout `ha_neopool_mqtt_lovelace.yaml`:
 
 ![image](https://github.com/alexdelprete/HA-NeoPool-MQTT/assets/7027842/e20e21c4-02b5-4e24-8453-d991c2f03f52)
 
-`ha_neopool_mqtt_lovelace_responsive.yaml`:
+Reponsive Layout `ha_neopool_mqtt_lovelace_responsive.yaml`:
 
-<img src="https://github.com/curzon01/HA-NeoPool-MQTT/blob/dev/.media/responsive1.png" alt="Responsive1" width="200"/> <img src="https://github.com/curzon01/HA-NeoPool-MQTT/blob/dev/.media/responsive2.png" alt="Responsive2" width="200"/> <img src="https://github.com/curzon01/HA-NeoPool-MQTT/blob/dev/.media/responsive3.png" alt="Responsive3" width="200"/> <img src="https://github.com/curzon01/HA-NeoPool-MQTT/blob/dev/.media/responsive4.png" alt="Responsive4" width="200"/>
+<img src="https://github.com/alexdelprete/HA-NeoPool-MQTT/blob/main/.media/responsive1.png" alt="Responsive1" width="200"/> <img src="https://github.com/alexdelprete/HA-NeoPool-MQTT/blob/main/.media/responsive2.png" alt="Responsive2" width="200"/> <img src="https://github.com/alexdelprete/HA-NeoPool-MQTT/blob/main/.media/responsive3.png" alt="Responsive3" width="200"/> <img src="https://github.com/alexdelprete/HA-NeoPool-MQTT/blob/main/.media/responsive4.png" alt="Responsive4" width="200"/>
 
-Since the native Tasmota integration does only support default entities to HA ([switches, selects, numbers, etc.](https://tasmota.github.io/docs/Home-Assistant/#supported-entities)), I opened a [discussion](https://github.com/arendst/Tasmota/discussions/19811) on Tasmota's repo with NeoPool dev, and we decided for now to integrate all possible entities using purely HA's MQTT integration entities.
+Since the native Tasmota integration does only t default entities to HA ([switches, selects, numbers, etc.](https://tasmota.github.io/docs/Home-Assistant/#supported-ies)), I opened a [discussion](https://github.com/arendst/Tasmota/discussions/19811) on Tasmota's repo with NeoPool dev, and decided for now to integrate all possible entities using purely HA's MQTT integration entities.
 
 All the NeoPool entities will be created through the provided package via HA's native MQTT entities (Note: It does not created a new device, it creates entities only).
 
@@ -19,7 +19,7 @@ Since the NeoPool driver is not contained in precompiled binaries, you need to c
 
 For flashing ESP32/ESP8266 I highly recommend using [ESP_Flasher](https://github.com/Jason2866/ESP_Flasher) by @Jason2866, in v2.0.1 he kindly implemented by [my request](https://github.com/Jason2866/ESP_Flasher/issues/29) support for ESP32 high-speed baud rates (1.5Mb/s) for very quick and reliable flashing and he also added support for factory images.
 
-# Custom pre-configured Tasmota build
+## Custom pre-configured Tasmota build
 
 When you custom compile your version, make sure to choose the dev branch and verify after flashing that version is at least `v13.2.0.2`. I will update notes to specify the stable min. version once known. When you custom compile your build, you'll need to use the `user_config_override.h` provided in the `compiler` folder of this repository; this will automatically enable NeoPool and also configure all settings automatically without requiring to manually follow the manual steps of next section.
 
@@ -40,7 +40,7 @@ If the result is not the one you see above, you need to issue the command `Modul
 In case you don't use the provided `user_config_override.h` file, you'll need to follow the Manual Configuration Steps section below.
 
 
-# Manual configuration steps
+## Manual configuration steps
 
 1. From Tasmota console, run these commands to optimize the device configuration:
 
