@@ -9,21 +9,20 @@ Reponsive Layout `ha_neopool_mqtt_lovelace_responsive.yaml`:
 
 <img src="https://github.com/alexdelprete/HA-NeoPool-MQTT/blob/main/.media/responsive1.png" alt="Responsive1" width="200"/> <img src="https://github.com/alexdelprete/HA-NeoPool-MQTT/blob/main/.media/responsive2.png" alt="Responsive2" width="200"/> <img src="https://github.com/alexdelprete/HA-NeoPool-MQTT/blob/main/.media/responsive3.png" alt="Responsive3" width="200"/> <img src="https://github.com/alexdelprete/HA-NeoPool-MQTT/blob/main/.media/responsive4.png" alt="Responsive4" width="200"/>
 
-Since the native Tasmota integration does only t default entities to HA ([switches, selects, numbers, etc.](https://tasmota.github.io/docs/Home-Assistant/#supported-ies)), I opened a [discussion](https://github.com/arendst/Tasmota/discussions/19811) on Tasmota's repo with NeoPool dev, and decided for now to integrate all possible entities using purely HA's MQTT integration entities.
+Since the native Tasmota integration only supports standard entities to HA ([switches, selects, numbers, etc.](https://tasmota.github.io/docs/Home-Assistant/#supported-ies)), I opened a [discussion](https://github.com/arendst/Tasmota/discussions/19811) on Tasmota's repo with NeoPool dev, and decided for now to integrate all possible entities using purely HA's MQTT integration entities.
 
-All the NeoPool entities will be created through the provided package via HA's native MQTT entities (Note: It does not created a new device, it creates entities only).
+All NeoPool entities are created by the provided package `ha_neopool_mqtt_package.yaml` via the native MQTT entities of HA (Note: It does not created a new device, it creates entities only).
 
-This integration needs at minimum Tasmota `v13.3.0`.
-
-Since the NeoPool driver is not contained in precompiled binaries, you need to compile your own build or use one of the precompiled binary from the `firmware` folder.
+This integration needs at minimum [Tasmota](https://tasmota.github.io/docs/) `v13.3.0` with the [NeoPool driver](https://tasmota.github.io/docs/NeoPool/).  
+Since the NeoPool driver is not contained in Tasmota precompiled binaries, you need to compile your own build or use one of the precompiled binary from the [firmware](https://github.com/alexdelprete/HA-NeoPool-MQTT/tree/main/firmware) folder. If you initial flash your ESP with one of the precompiled binaries, you can skip the points "_Custom pre-configured Tasmota build_" and "_Configuration steps 1._" below.
 
 For flashing ESP32/ESP8266 I highly recommend using [ESP_Flasher](https://github.com/Jason2866/ESP_Flasher) by @Jason2866, in v2.0.1 he kindly implemented by [my request](https://github.com/Jason2866/ESP_Flasher/issues/29) support for ESP32 high-speed baud rates (1.5Mb/s) for very quick and reliable flashing and he also added support for factory images.
 
 ## Custom pre-configured Tasmota build
 
-When you custom compile your version, make sure to choose the dev branch and verify after flashing that version is at least `v13.2.0.2`. I will update notes to specify the stable min. version once known. When you custom compile your build, you'll need to use the `user_config_override.h` provided in the `compiler` folder of this repository; this will automatically enable NeoPool and also configure all settings automatically without requiring to manually follow the manual steps of next section.
+NOTE for beginners: If you have no idea about how to custom compile Tasmota, you can use the precompiled files in the [firmware](https://github.com/alexdelprete/HA-NeoPool-MQTT/tree/main/firmware) folder.
 
-NOTE for beginners: if you have no idea about how to custom compile Tasmota, you can use the precompiled files in the `firmware` folder of the repository.
+When you custom compile your version, make sure to choose the dev branch and verify after flashing that version is at least `v13.2.0.2`. I will update notes to specify the stable min. version once known. When you custom compile your build, you'll need to use the `user_config_override.h` provided in the `compiler` folder of this repository; this will automatically enable NeoPool and also configure all settings automatically without requiring to manually follow the manual steps of next section.
 
 The only thing you'll have to check is if the activated template is correct, you do this from Tasmota console executing command `Module`:
 ```console
@@ -39,10 +38,10 @@ If the result is not the one you see above, you need to issue the command `Modul
 
 In case you don't use the provided `user_config_override.h` file, you'll need to follow the Manual Configuration Steps section below.
 
+## Configuration steps
 
-## Manual configuration steps
-
-1. From Tasmota console, run these commands to optimize the device configuration:
+1. **Tasmota**  
+   From Tasmota console, run these commands to optimize the device configuration:
 
     _This sets Retain flag for telemetry topic so that HA entities are immediately available_
     ```console
@@ -75,20 +74,26 @@ In case you don't use the provided `user_config_override.h` file, you'll need to
     ```console
     Backlog Rule1 4;Rule1 1; Module 0;
     ```
-2. Home Assistant MQTT integration properly configured and working
-3. The integration is released as a Home Assistant package, check HA docs on how to configure HA for package usage. Please note that this integration will not create a device, only entities.
-4. The lovelace UI is extracted from the raw lovelace file, edit your raw lovelace config and paste the contents of the yaml file. There are two lovelace files:
+2. **Home Assistant**  
+   Add the [Home Assistant MQTT integration](https://www.home-assistant.io/integrations/mqtt/) properly configured and working.
+3. **Home Assistant**  
+   Add `ha_neopool_mqtt_package.yaml` as [Home Assistant package](https://www.home-assistant.io/docs/configuration/packages/). Check [HA docs]((https://www.home-assistant.io/docs/configuration/packages/)) on how to configure HA for package usage.  
+   This integration will not create a device, only entities. To check if the `ha_neopool_mqtt_package.yaml` is working, go to HA "Settings", "Devices & services", "Entities" and search for the entities "neopool_mqtt".
+4. **Home Assistant**  
+   Add the [HACS (Home Assistant Community Store)](https://hacs.xyz/), if not already done.
+5. **Home Assistant**  
+   The user interface uses the following cards, which are available via HACS and which you must first install:
+   - [layout-card](https://github.com/thomasloven/lovelace-layout-card)
+   - [mini-graph-card](https://github.com/kalkih/mini-graph-card)
+   - [custom-brand-icons](https://github.com/elax46/custom-brand-icons)
+   - [mushroom](https://github.com/piitaya/lovelace-mushroom) (for the pc/notebook layout only)
+   - [stack-in-card](https://github.com/custom-cards/stack-in-card) (for the pc/notebook layout only)
+   - [text-divider-row](https://github.com/iantrich/text-divider-row) (for the pc/notebook layout only)
+6. **Home Assistant**  
+   Add one of the two provided lovelace UI `ha_neopool_mqtt_lovelace*.yaml`.  
+   The lovelace UI yaml files here are extracted from the raw lovelace file. To use it edit the raw lovelace config within your HA Dashboard and paste the contents of one of the yaml file below the top word `views:`. Select one of the two possible lovelace files:
     - `ha_neopool_mqtt_lovelace.yaml` for pc/notebook display resolutions
     - `ha_neopool_mqtt_lovelace_responsive.yaml` using standard HA cards without resolution limitations <img src="https://github.com/alexdelprete/HA-NeoPool-MQTT/blob/main/.media/install-lovelace.gif" alt="install lovelace" width="480"/>
-
-The UI makes use of the following cards, available through [HACS](https://github.com/hacs), that you need to install first:
-
-- [layout-card](https://github.com/thomasloven/lovelace-layout-card)
-- [mini-graph-card](https://github.com/kalkih/mini-graph-card)
-- [custom-brand-icons](https://github.com/elax46/custom-brand-icons)
-- [mushroom](https://github.com/piitaya/lovelace-mushroom) (for the pc/notebook layout only)
-- [stack-in-card](https://github.com/custom-cards/stack-in-card) (for the pc/notebook layout only)
-- [text-divider-row](https://github.com/iantrich/text-divider-row) (for the pc/notebook layout only)
 
 # Credits
 Big thanks to @fdebrus for inspiring me and @curzon01 for the great support.
