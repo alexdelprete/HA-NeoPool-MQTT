@@ -95,6 +95,11 @@ In case you don't use the provided `user_config_override.h` file, you'll need to
     - `ha_neopool_mqtt_lovelace.yaml` for pc/notebook display resolutions
     - `ha_neopool_mqtt_lovelace_responsive.yaml` using standard HA cards without resolution limitations <img src="https://github.com/alexdelprete/HA-NeoPool-MQTT/blob/main/.media/install-lovelace.gif" alt="install lovelace" width="480"/>
 
+# Changelog
+- May 19, 2024:
+   - Created new Water Flow binary sensor based on hydrolysis_fl1 binary sensor
+   - Updated lovelace UI to accomodate Water Flow sensor
+
 # Credits
 Big thanks to @fdebrus for inspiring me and @curzon01 for the great support.
 
