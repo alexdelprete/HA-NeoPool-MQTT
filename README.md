@@ -3,7 +3,7 @@ Home Assistant MQTT integration for Tasmota NeoPool module (ESP32 and ESP8266 de
 
 Notebook/PC Layout `ha_neopool_mqtt_lovelace.yaml`:
 
-![image](https://github.com/alexdelprete/HA-NeoPool-MQTT/assets/7027842/e20e21c4-02b5-4e24-8453-d991c2f03f52)
+![image](https://github.com/alexdelprete/HA-NeoPool-MQTT/assets/7027842/d7b81889-cc58-48d2-90ef-194253a7002e)
 
 Reponsive Layout `ha_neopool_mqtt_lovelace_responsive.yaml`:
 
