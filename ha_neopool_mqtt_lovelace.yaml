@@ -189,7 +189,7 @@
       - type: custom:stack-in-card
         cards:
           - type: custom:text-divider-row
-            text: Hydrolysis Module Info
+            text: Modules Info
           - type: grid
             columns: 3
             square: false
@@ -211,9 +211,9 @@
                 icon: mdi:alarm-light-outline
                 name: Production Low
               - type: custom:mushroom-entity-card
-                entity: binary_sensor.neopool_mqtt_hydrolysis_cover
-                name: Cover
-                icon: mdi:window-shutter-cog
+                entity: binary_sensor.neopool_mqtt_hydrolysis_water_flow
+                name: Water Flow
+                icon: mdi:air-filter
               - type: custom:mushroom-entity-card
                 entity: sensor.neopool_mqtt_hydrolysis_runtime_polarity_changes
                 name: Polarity Changes
@@ -227,12 +227,6 @@
               - type: custom:mushroom-entity-card
                 entity: sensor.neopool_mqtt_hydrolysis_runtime_pol2
                 name: Runtime Pol2
-          - type: custom:text-divider-row
-            text: pH Module Info
-          - type: grid
-            columns: 3
-            square: false
-            cards:
               - type: custom:mushroom-entity-card
                 entity: sensor.neopool_mqtt_ph_state
                 name: Controller
@@ -240,8 +234,12 @@
                 entity: sensor.neopool_mqtt_ph_pump
                 name: Pump
                 icon: phu:pool-filter
+              - type: custom:mushroom-entity-card
+                entity: binary_sensor.neopool_mqtt_hydrolysis_cover
+                name: Cover
+                icon: mdi:window-shutter-cog
           - type: custom:text-divider-row
-            text: Modules State
+            text: Modules Detected
           - type: grid
             columns: 3
             square: false
