@@ -99,6 +99,9 @@ In case you don't use the provided `user_config_override.h` file, you'll need to
 - May 27, 2024:
    - Change pH tank level default device class as 'problem'
    - Change hydrolysis low production device class as 'problem'
+   - Update lovelace responsive UI:
+     - Add hydrolysis water flow sensor
+     - Move ph water flow alarm to pH info
 - May 19, 2024:
    - Created new Water Flow binary sensor based on hydrolysis_fl1 binary sensor
    - Updated lovelace UI to accomodate Water Flow sensor
