@@ -401,10 +401,11 @@ mqtt:
 
     - unique_id: "neopool_mqtt_ph_tank_level"
       name: "NeoPool MQTT pH Tank Level"
+      device_class: problem
       state_topic: "tele/SmartPool/SENSOR"
       value_template: "{{ value_json.NeoPool.pH.Tank }}"
-      payload_on: "1"
-      payload_off: "0"
+      payload_on: "0"
+      payload_off: "1"
       availability_topic: "tele/SmartPool/LWT"
       payload_available: "Online"
       payload_not_available: "Offline"
@@ -421,6 +422,7 @@ mqtt:
 
     - unique_id: "neopool_mqtt_hydrolysis_low_production"
       name: "NeoPool MQTT Hydrolysis Low Production"
+      device_class: problem
       state_topic: "tele/SmartPool/SENSOR"
       value_template: "{{ value_json.NeoPool.Hydrolysis.Low }}"
       payload_on: "1"
