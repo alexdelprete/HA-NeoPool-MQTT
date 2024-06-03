@@ -14,7 +14,7 @@ Since the native Tasmota integration only supports standard entities to HA ([swi
 
 All NeoPool entities are created by the provided package `ha_neopool_mqtt_package.yaml` via the native MQTT entities of HA (Note: It does not created a new device, it creates entities only).
 
-This integration needs at minimum [Tasmota](https://tasmota.github.io/docs/) `v13.3.0` with the [NeoPool driver](https://tasmota.github.io/docs/NeoPool/).  
+This integration needs at minimum [Tasmota](https://tasmota.github.io/docs/) v13.3.0 with compiled [NeoPool driver](https://tasmota.github.io/docs/NeoPool/).  
 Since the NeoPool driver is not contained in Tasmota precompiled binaries, you need to compile your own build or use one of the precompiled binary from the [firmware](https://github.com/alexdelprete/HA-NeoPool-MQTT/tree/main/firmware) folder. If you initial flash your ESP with one of the precompiled binaries, you can skip the points "_Custom pre-configured Tasmota build_" and "_Configuration steps 1._" below.
 
 For flashing ESP32/ESP8266 I highly recommend using [ESP_Flasher](https://github.com/Jason2866/ESP_Flasher) by @Jason2866, in v2.0.1 he kindly implemented by [my request](https://github.com/Jason2866/ESP_Flasher/issues/29) support for ESP32 high-speed baud rates (1.5Mb/s) for very quick and reliable flashing and he also added support for factory images.
