@@ -149,5 +149,5 @@ _If you like this integration, I'll gladly accept some quality coffee, but pleas
 [buymecoffee-shield]: https://img.shields.io/badge/buy%20me%20a%20coffee-donate-white?style=for-the-badge
 [forum-shield]: https://img.shields.io/badge/community-forum-darkred?style=for-the-badge
 [forum]: https://community.home-assistant.io/t/ha-neopool-mqtt-integration-of-tasmota-neopool-for-sugar-valley-hayward-aquarite-bayrol-devices/632517?u=alexdelprete
-[repo-shield]: https://img.shields.io/github/v/release/alexdelprete/HA-NeoPool-MQTT?style=for-the-badge&color=darkgreen
+[repo-shield]: https://img.shields.io/badge/GitHub-Repo-blue?style=for-the-badge&logo=github&link=https%3A%2F%2Fgithub.com%2Falexdelprete%2FHA-NeoPool-MQTT
 [repo]: https://github.com/alexdelprete/HA-NeoPool-MQTT
