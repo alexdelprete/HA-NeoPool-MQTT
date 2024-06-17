@@ -1,5 +1,9 @@
 # HA-NeoPool-MQTT
 
+[![GitHub Repository][repo-shield]][repo]
+[![BuyMeCoffee][buymecoffee-shield]][buymecoffee]
+[![Community Forum][forum-shield]][forum]
+
 Home Assistant MQTT integration for Tasmota NeoPool module (ESP32 and ESP8266 devices).
 
 Notebook/PC Layout `ha_neopool_mqtt_lovelace.yaml`:
@@ -135,6 +139,15 @@ Please open an issue in this repo if you're sure there's a bug. For discussions/
 
 # Coffee
 
-If you like this integration, I'll gladly accept some quality coffee, but please don't feel obliged. :)
+_If you like this integration, I'll gladly accept some quality coffee, but please don't feel obliged._ :)
 
-<a href="https://www.buymeacoffee.com/alexdelprete" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/black_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+[![BuyMeCoffee][buymecoffee-shield]][buymecoffee]
+
+---
+
+[buymecoffee]: https://www.buymeacoffee.com/alexdelprete
+[buymecoffee-shield]: https://img.shields.io/badge/buy%20me%20a%20coffee-donate-white?style=for-the-badge
+[forum-shield]: https://img.shields.io/badge/community-forum-darkred?style=for-the-badge
+[forum]: https://community.home-assistant.io/t/ha-neopool-mqtt-integration-of-tasmota-neopool-for-sugar-valley-hayward-aquarite-bayrol-devices/632517?u=alexdelprete
+[repo-shield]: https://img.shields.io/github/v/release/alexdelprete/HA-NeoPool-MQTT?style=for-the-badge&color=darkgreen
+[repo]: https://github.com/alexdelprete/HA-NeoPool-MQTT
