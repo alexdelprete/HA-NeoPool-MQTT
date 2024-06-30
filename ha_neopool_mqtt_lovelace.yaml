@@ -196,20 +196,20 @@
             cards:
               - type: custom:mushroom-entity-card
                 entity: sensor.neopool_mqtt_hydrolysis_state
-                name: State
+                name: Hydro State
                 icon: mdi:water-sync
               - type: custom:mushroom-entity-card
                 entity: sensor.neopool_mqtt_hydrolysis_data_g_h
-                name: Production
+                name: Hydro Production
                 icon: phu:pool-clorine
               - type: custom:mushroom-entity-card
                 entity: sensor.neopool_mqtt_hydrolysis_data
-                name: Production %
+                name: Hydro Production %
                 icon: phu:pool-clorine
               - type: custom:mushroom-entity-card
                 entity: binary_sensor.neopool_mqtt_hydrolysis_low_production
                 icon: mdi:alarm-light-outline
-                name: Production Low
+                name: Low Production
               - type: custom:mushroom-entity-card
                 entity: binary_sensor.neopool_mqtt_hydrolysis_water_flow
                 name: Water Flow
@@ -220,19 +220,19 @@
                 icon: mdi:swap-horizontal-circle-outline
               - type: custom:mushroom-entity-card
                 entity: sensor.neopool_mqtt_hydrolysis_runtime_total
-                name: Runtime Total
+                name: Tot. Runtime
               - type: custom:mushroom-entity-card
                 entity: sensor.neopool_mqtt_hydrolysis_runtime_pol1
-                name: Runtime Pol1
+                name: Pol1 Runtime
               - type: custom:mushroom-entity-card
                 entity: sensor.neopool_mqtt_hydrolysis_runtime_pol2
-                name: Runtime Pol2
+                name: Pol2 Runtime
               - type: custom:mushroom-entity-card
                 entity: sensor.neopool_mqtt_ph_state
-                name: Controller
+                name: pH State
               - type: custom:mushroom-entity-card
                 entity: sensor.neopool_mqtt_ph_pump
-                name: Pump
+                name: pH Pump
                 icon: phu:pool-filter
               - type: custom:mushroom-entity-card
                 entity: binary_sensor.neopool_mqtt_hydrolysis_cover
