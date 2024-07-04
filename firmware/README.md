@@ -2,7 +2,7 @@
 
 This folder contains [Tasmota](https://github.com/arendst/Tasmota) binary files including the [driver for Sugar Valley NeoPool Controller](https://tasmota.github.io/docs/NeoPool/).
 
-The binaries are based on [Tasmota v14.1.0 Rachel](https://github.com/arendst/Tasmota/tree/v14.1.0).
+The binaries are based on Tasmota v14.1.0.3 [843dd17ae](https://github.com/arendst/Tasmota/tree/843dd17aecf37d417f302daf45512ba6aa1e9e38) of [Tasmota development](https://github.com/arendst/Tasmota/tree/development) branch.
 
 To initial flash an ESP32/ESP8266 it is recommended using [ESP_Flasher](https://github.com/Jason2866/ESP_Flasher) and the file matching your ESP chip type (for ESP32 the files **with** `factory` in the filename):
 
