@@ -298,3 +298,21 @@
               - type: custom:mushroom-entity-card
                 entity: sensor.neopool_mqtt_powerunit_4_20ma
                 name: 4mA
+          - type: custom:text-divider-row
+            text: Connection Statistics
+          - square: false
+            type: grid
+            columns: 4
+            cards:
+              - type: custom:mushroom-entity-card
+                entity: sensor.neopool_mqtt_connection_system_requests
+                name: Requests
+              - type: custom:mushroom-entity-card
+                entity: sensor.neopool_mqtt_connection_system_responses
+                name: Responses
+              - type: custom:mushroom-entity-card
+                entity: sensor.neopool_mqtt_connection_missed_system_responses
+                name: Missed
+              - type: custom:mushroom-entity-card
+                entity: sensor.neopool_mqtt_connection_out_of_range_system_responses
+                name: Invalid

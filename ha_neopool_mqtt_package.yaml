@@ -1,4 +1,4 @@
-# HA NeoPool MQTT v3.0
+# HA NeoPool MQTT v3.5
 # Tasmota NeoPool module integration via MQTT
 # by @alexdelprete
 # repo: https://github.com/alexdelprete/HA-NeoPool-MQTT
@@ -227,6 +227,51 @@ mqtt:
       payload_available: "Online"
       payload_not_available: "Offline"
 
+    # Connection diagnostic sensors
+    - unique_id: "neopool_mqtt_conndiag_system_requests"
+      name: "NeoPool MQTT Connection System Requests"
+      icon: mdi:source-branch-check
+      state_class: measurement
+      state_topic: "tele/SmartPool/SENSOR"
+      value_template: "{{ value_json.NeoPool.Connection.MBRequests }}"
+      availability_topic: "tele/SmartPool/SENSOR"
+      availability_template: "{{ iif(value_json.NeoPool.Connection.MBRequests is defined, 'Online', 'Offline') }}"
+      payload_available: "Online"
+      payload_not_available: "Offline"
+
+    - unique_id: "neopool_mqtt_conndiag_system_responses"
+      name: "NeoPool MQTT Connection System Responses"
+      icon: mdi:source-branch-check
+      state_class: measurement
+      state_topic: "tele/SmartPool/SENSOR"
+      value_template: "{{ value_json.NeoPool.Connection.MBNoError }}"
+      availability_topic: "tele/SmartPool/SENSOR"
+      availability_template: "{{ iif(value_json.NeoPool.Connection.MBNoError is defined, 'Online', 'Offline') }}"
+      payload_available: "Online"
+      payload_not_available: "Offline"
+
+    - unique_id: "neopool_mqtt_conndiag_missed_system_responses"
+      name: "NeoPool MQTT Connection Missed System Responses"
+      icon: mdi:source-branch-check
+      state_class: measurement
+      state_topic: "tele/SmartPool/SENSOR"
+      value_template: "{{ value_json.NeoPool.Connection.MBNoResponse }}"
+      availability_topic: "tele/SmartPool/SENSOR"
+      availability_template: "{{ iif(value_json.NeoPool.Connection.MBNoResponse is defined, 'Online', 'Offline') }}"
+      payload_available: "Online"
+      payload_not_available: "Offline"
+
+    - unique_id: "neopool_mqtt_conndiag_outofrange_system_responses"
+      name: "NeoPool MQTT Connection Out of Range System Responses"
+      icon: mdi:source-branch-check
+      state_class: measurement
+      state_topic: "tele/SmartPool/SENSOR"
+      value_template: "{{ value_json.NeoPool.Connection.DataOutOfRange }}"
+      availability_topic: "tele/SmartPool/SENSOR"
+      availability_template: "{{ iif(value_json.NeoPool.Connection.DataOutOfRange is defined, 'Online', 'Offline') }}"
+      payload_available: "Online"
+      payload_not_available: "Offline"
+
   binary_sensor:
     - unique_id: "neopool_mqtt_modules_ph"
       name: "NeoPool MQTT pH Module"
@@ -390,6 +435,7 @@ mqtt:
 
     - unique_id: "neopool_mqtt_hydrolysis_ctrl_fl1_water_flow"
       name: "NeoPool MQTT Hydrolysis Water Flow"
+      icon: mdi:air-filter
       state_topic: "tele/SmartPool/SENSOR"
       value_template: "{{ value_json.NeoPool.Hydrolysis.FL1 }}"
       payload_on: "0"
@@ -397,7 +443,6 @@ mqtt:
       availability_topic: "tele/SmartPool/LWT"
       payload_available: "Online"
       payload_not_available: "Offline"
-      icon: mdi:air-filter
 
     - unique_id: "neopool_mqtt_ph_tank_level"
       name: "NeoPool MQTT pH Tank Level"
