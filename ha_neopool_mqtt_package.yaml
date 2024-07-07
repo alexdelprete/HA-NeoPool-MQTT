@@ -235,7 +235,12 @@ mqtt:
       state_topic: "tele/SmartPool/SENSOR"
       value_template: "{{ value_json.NeoPool.Connection.MBRequests }}"
       availability_topic: "tele/SmartPool/SENSOR"
-      availability_template: "{{ iif(value_json.NeoPool.Connection.MBRequests is defined, 'Online', 'Offline') }}"
+      availability_template: >-
+        {% if value_json.NeoPool.Connection.MBRequests is defined and states('sensor.neopool_mqtt_system_model') != 'unavailable' %}
+          Online
+        {% else %}
+          Offline
+        {% endif %}
       payload_available: "Online"
       payload_not_available: "Offline"
 
@@ -246,7 +251,12 @@ mqtt:
       state_topic: "tele/SmartPool/SENSOR"
       value_template: "{{ value_json.NeoPool.Connection.MBNoError }}"
       availability_topic: "tele/SmartPool/SENSOR"
-      availability_template: "{{ iif(value_json.NeoPool.Connection.MBNoError is defined, 'Online', 'Offline') }}"
+      availability_template: >-
+        {% if value_json.NeoPool.Connection.MBNoError is defined and states('sensor.neopool_mqtt_system_model') != 'unavailable' %}
+          Online
+        {% else %}
+          Offline
+        {% endif %}
       payload_available: "Online"
       payload_not_available: "Offline"
 
@@ -257,7 +267,12 @@ mqtt:
       state_topic: "tele/SmartPool/SENSOR"
       value_template: "{{ value_json.NeoPool.Connection.MBNoResponse }}"
       availability_topic: "tele/SmartPool/SENSOR"
-      availability_template: "{{ iif(value_json.NeoPool.Connection.MBNoResponse is defined, 'Online', 'Offline') }}"
+      availability_template: >-
+        {% if value_json.NeoPool.Connection.MBNoResponse is defined and states('sensor.neopool_mqtt_system_model') != 'unavailable' %}
+          Online
+        {% else %}
+          Offline
+        {% endif %}
       payload_available: "Online"
       payload_not_available: "Offline"
 
@@ -268,7 +283,12 @@ mqtt:
       state_topic: "tele/SmartPool/SENSOR"
       value_template: "{{ value_json.NeoPool.Connection.DataOutOfRange }}"
       availability_topic: "tele/SmartPool/SENSOR"
-      availability_template: "{{ iif(value_json.NeoPool.Connection.DataOutOfRange is defined, 'Online', 'Offline') }}"
+      availability_template: >-
+        {% if value_json.NeoPool.Connection.DataOutOfRange is defined and states('sensor.neopool_mqtt_system_model') != 'unavailable' %}
+          Online
+        {% else %}
+          Offline
+        {% endif %}
       payload_available: "Online"
       payload_not_available: "Offline"
 
