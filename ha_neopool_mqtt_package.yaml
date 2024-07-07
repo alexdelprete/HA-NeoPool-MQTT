@@ -89,7 +89,11 @@ mqtt:
       value_template: "{{ value_json.NeoPool.Hydrolysis.Data | round(1) }}"
       availability_topic: "tele/SmartPool/SENSOR"
       availability_template: >-
-        {{ iif(value_json.NeoPool.Hydrolysis.Unit == "g/h", "Online", "Offline") }}
+        {% if value_json.NeoPool.Hydrolysis.Unit == "g/h" and states('sensor.neopool_mqtt_system_model') != 'unavailable' %}
+          Online
+        {% else %}
+          Offline
+        {% endif %}
       payload_available: "Online"
       payload_not_available: "Offline"
 
