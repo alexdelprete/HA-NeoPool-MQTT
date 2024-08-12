@@ -50,12 +50,12 @@ Devices supported by Tasmota NeoPool have an RS485 modbus2 port where the ESP de
 
 Pin mapping, top to bottom, from the [Tasmota Sugar Valley NeoPool page](https://tasmota.github.io/docs/NeoPool/):
 
-![alt text](image-5.png)
+![wiring pin mapping table](image-5.png)
 
 
 This ports looks like this one (pic taken from a Hayward device) and thats how pins match:
 
-![alt text](image-6.png)
+![wiring pin mapping in real pic](image-6.png)
 
 ## Configuration steps
 
@@ -122,13 +122,13 @@ This ports looks like this one (pic taken from a Hayward device) and thats how p
     1. Access the web interface by pointing your browser to its IP. You can find it out in your router or by discovering.
 
     2. Click in the `Configuration` menu option:
-        ![alt text](image-2.png)
+        ![tasmota main menu](image-2.png)
     
     3. Click in the `Configure MQTT` option:
-        ![alt text](image-3.png)
+        ![tasmota configuration menu](image-3.png)
     
     4. Fill in required data. Mandatory field is `Host`, but having `user` and `password` protection is a **great** idea.
-        ![alt text](image-4.png)
+        ![tasmota mqtt configuration form](image-4.png)
     
       If you are using the Mosquitto addon in HAOS, the IP is the same of your HA server and you can create a new user directly in HA going to `Settings > People > User's tab > + Add new user`. It is recommended to **remove the "Admin" access** and make it **local access only**.
 4. **Home Assistant**  
@@ -139,7 +139,7 @@ This ports looks like this one (pic taken from a Hayward device) and thats how p
    1. Create a directory called `packages` inside your `config` directory.
    2. Paste `ha_neopool_mqtt_package.yaml` file or create a new one with that same name and paste contents inside. You would endup having this:
 
-      ![alt text](image.png)
+      ![package directory screenshot](image.png)
 
    3. Edit your `configuration.yaml` file and add the package adding this line in the `homeassistant`:
       ```
@@ -148,7 +148,7 @@ This ports looks like this one (pic taken from a Hayward device) and thats how p
 
       you'll end up having something like this:
 
-      ![alt text](image-1.png)
+      ![directory with file screenshot](image-1.png)
     
     4. Restart HA (recommended) or go to developer options and make a full reload.
 
