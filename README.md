@@ -104,7 +104,26 @@ In case you don't use the provided `user_config_override.h` file, you'll need to
 2. **Home Assistant**  
    Add the [Home Assistant MQTT integration](https://www.home-assistant.io/integrations/mqtt/) properly configured and working.
 3. **Home Assistant**  
-   Add `ha_neopool_mqtt_package.yaml` as [Home Assistant package](https://www.home-assistant.io/docs/configuration/packages/). Check [HA docs]((https://www.home-assistant.io/docs/configuration/packages/)) on how to configure HA for package usage.  
+   Add `ha_neopool_mqtt_package.yaml` as [Home Assistant package](https://www.home-assistant.io/docs/configuration/packages/). Check [HA docs]((https://www.home-assistant.io/docs/configuration/packages/)) on how to configure HA for package usage.
+
+   Simpler way is to use the Studio Code Server o Terminal addons in HA and follow these steps:
+   
+   1. Create a directory called `packages` inside your `config` directory.
+   2. Paste `ha_neopool_mqtt_package.yaml` file or create a new one with that same name and paste contents inside. You would endup having this:
+
+      ![alt text](image.png)
+
+   3. Edit your `configuration.yaml` file and add the package adding this line in the `homeassistant`:
+      ```
+      packages: !include_dir_named packages
+      ```
+
+      you'll end up having something like this:
+
+      ![alt text](image-1.png)
+    
+    4. Restart HA (recommended) or go to developer options and make a full reload.
+
    This integration will not create a device, only entities. To check if the `ha_neopool_mqtt_package.yaml` is working, go to HA "Settings", "Devices & services", "Entities" and search for the entities "neopool_mqtt".
 4. **Home Assistant**  
    Add the [HACS (Home Assistant Community Store)](https://hacs.xyz/), if not already done.
