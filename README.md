@@ -176,6 +176,8 @@ This ports looks like this one (pic taken from a Hayward device) and thats how p
 
 # Changelog
 
+- August 12, 2024:
+  - Adds documentation just for clarifying.
 - May 27, 2024:
   - Change pH tank level default device class as 'problem'
   - Change hydrolysis low production device class as 'problem'
