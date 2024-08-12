@@ -45,6 +45,18 @@ If the result is not the one you see above, you need to issue the command `Modul
 
 In case you don't use the provided `user_config_override.h` file, you'll need to follow the Manual Configuration Steps section below.
 
+## Wiring
+Devices supported by Tasmota NeoPool have an RS485 modbus2 port where the ESP device is plugged in.
+
+Pin mapping, top to bottom, from the [Tasmota Sugar Valley NeoPool page](https://tasmota.github.io/docs/NeoPool/):
+
+![alt text](image-5.png)
+
+
+This ports looks like this one (pic taken from a Hayward device) and thats how pins match:
+
+![alt text](image-6.png)
+
 ## Configuration steps
 
 1. **Tasmota**  
