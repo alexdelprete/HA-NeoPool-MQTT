@@ -45,6 +45,18 @@ If the result is not the one you see above, you need to issue the command `Modul
 
 In case you don't use the provided `user_config_override.h` file, you'll need to follow the Manual Configuration Steps section below.
 
+## Wiring
+Devices supported by Tasmota NeoPool have an RS485 modbus2 port where the ESP device is plugged in.
+
+Pin mapping, top to bottom, from the [Tasmota Sugar Valley NeoPool page](https://tasmota.github.io/docs/NeoPool/):
+
+![wiring pin mapping table](images/image-5.png)
+
+
+This ports looks like this one (pic taken from a Hayward device) and thats how pins match:
+
+![wiring pin mapping in real pic](images/image-6.png)
+
 ## Configuration steps
 
 1. **Tasmota**  
@@ -103,12 +115,50 @@ In case you don't use the provided `user_config_override.h` file, you'll need to
 
 2. **Home Assistant**  
    Add the [Home Assistant MQTT integration](https://www.home-assistant.io/integrations/mqtt/) properly configured and working.
-3. **Home Assistant**  
-   Add `ha_neopool_mqtt_package.yaml` as [Home Assistant package](https://www.home-assistant.io/docs/configuration/packages/). Check [HA docs]((https://www.home-assistant.io/docs/configuration/packages/)) on how to configure HA for package usage.  
-   This integration will not create a device, only entities. To check if the `ha_neopool_mqtt_package.yaml` is working, go to HA "Settings", "Devices & services", "Entities" and search for the entities "neopool_mqtt".
+3. **Tasmota**
+
+    Configure MQTT broker in your Tasmota SmartPool.
+
+    1. Access the web interface by pointing your browser to its IP. You can find it out in your router or by discovering.
+
+    2. Click in the `Configuration` menu option:
+
+        ![tasmota main menu](images/image-2.png)
+    
+    3. Click in the `Configure MQTT` option:
+
+        ![tasmota configuration menu](images/image-3.png)
+    
+    4. Fill in required data. Mandatory field is `Host`, but having `user` and `password` protection is a **great** idea.
+
+        ![tasmota mqtt configuration form](images/image-4.png)
+    
+      If you are using the Mosquitto addon in HAOS, the IP is the same of your HA server and you can create a new user directly in HA going to `Settings > People > User's tab > + Add new user`. It is recommended to **remove the "Admin" access** and make it **local access only**.
 4. **Home Assistant**  
-   Add the [HACS (Home Assistant Community Store)](https://hacs.xyz/), if not already done.
+   Add `ha_neopool_mqtt_package.yaml` as [Home Assistant package](https://www.home-assistant.io/docs/configuration/packages/). Check [HA docs]((https://www.home-assistant.io/docs/configuration/packages/)) on how to configure HA for package usage.
+
+   Simpler way is to use the Studio Code Server o Terminal addons in HA and follow these steps:
+   
+   1. Create a directory called `packages` inside your `config` directory.
+   2. Paste `ha_neopool_mqtt_package.yaml` file or create a new one with that same name and paste contents inside. You would endup having this:
+
+      ![package directory screenshot](images/image.png)
+
+   3. Edit your `configuration.yaml` file and add the package adding this line in the `homeassistant`:
+      ```
+      packages: !include_dir_named packages
+      ```
+
+      you'll end up having something like this:
+
+      ![directory with file screenshot](images/image-1.png)
+    
+    4. Restart HA (recommended) or go to developer options and make a full reload.
+
+   This integration will not create a device, only entities. To check if the `ha_neopool_mqtt_package.yaml` is working, go to HA "Settings", "Devices & services", "Entities" and search for the entities "neopool_mqtt".
 5. **Home Assistant**  
+   Add the [HACS (Home Assistant Community Store)](https://hacs.xyz/), if not already done.
+6. **Home Assistant**  
    The user interface uses the following cards, which are available via HACS and which you must first install:
    - [layout-card](https://github.com/thomasloven/lovelace-layout-card)
    - [mini-graph-card](https://github.com/kalkih/mini-graph-card)
@@ -116,15 +166,18 @@ In case you don't use the provided `user_config_override.h` file, you'll need to
    - [mushroom](https://github.com/piitaya/lovelace-mushroom) (for the pc/notebook layout only)
    - [stack-in-card](https://github.com/custom-cards/stack-in-card) (for the pc/notebook layout only)
    - [text-divider-row](https://github.com/iantrich/text-divider-row) (for the pc/notebook layout only)
-6. **Home Assistant**  
+7. **Home Assistant**  
    Add one of the two provided lovelace UI `ha_neopool_mqtt_lovelace*.yaml`.  
    The lovelace UI yaml files here are extracted from the raw lovelace file. To use it edit the raw lovelace config within your HA Dashboard and paste the contents of one of the yaml file below the top word `views:`. Select one of the two possible lovelace files:
     - `ha_neopool_mqtt_lovelace.yaml` for pc/notebook display resolutions
     - `ha_neopool_mqtt_lovelace_responsive.yaml` using standard HA cards without resolution limitations
-<img src="https://raw.githubusercontent.com/alexdelprete/HA-NeoPool-MQTT/main/.media/install-lovelace.gif" alt="install lovelace" width="480"/>
+
+    <img src="https://raw.githubusercontent.com/alexdelprete/HA-NeoPool-MQTT/main/.media/install-lovelace.gif" alt="install lovelace" width="480"/>
 
 # Changelog
 
+- August 12, 2024:
+  - Adds documentation just for clarifying.
 - May 27, 2024:
   - Change pH tank level default device class as 'problem'
   - Change hydrolysis low production device class as 'problem'
