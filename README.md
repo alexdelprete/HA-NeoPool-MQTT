@@ -83,10 +83,16 @@ In case you don't use the provided `user_config_override.h` file, you'll need to
     Template {"NAME":"NeoPool Atom Lite + Atomic RS485 Base","GPIO":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6976,0,0,7008,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"FLAG":0,"BASE":1}
     ```
 
-    AtomS3 Lite + Atomic RS485 Base (GPIO19: NeoPool TX - GPIO22: NeoPool RX)
+    AtomS3 Lite + Tail485 (GPIO2: NeoPool TX - GPIO1: NeoPool RX)
 
     ```console
-    Template {"NAME":"NeoPool AtomS3 Lite + Atomic RS485 Base","GPIO":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6976,0,0,7008,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"FLAG":0,"BASE":1}
+    tbd
+    ```
+
+    AtomS3 Lite + Atomic RS485 Base (GPIO6: NeoPool TX - GPIO5: NeoPool RX)
+
+    ```console
+    Template {“NAME”:“NeoPool AtomS3 Lite + Atomic RS485 Base”,“GPIO”:[0,0,0,0,0,7008,6976,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],“FLAG”:0,“BASE”:1}
     ```
 
     Other ESP32/ESP8266 devices (GPIO3: NeoPool TX - GPIO1: NeoPool RX):
