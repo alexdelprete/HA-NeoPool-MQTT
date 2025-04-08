@@ -71,6 +71,7 @@ In case you don't use the provided `user_config_override.h` file, you'll need to
     ```
 
     _Configure user template for GPIO definition based on device type_
+   
     Atom Lite + Tail485 (GPIO26: NeoPool TX / GPIO32: NeoPool RX)
 
     ```console
@@ -107,14 +108,14 @@ In case you don't use the provided `user_config_override.h` file, you'll need to
     Backlog Rule1 4;Rule1 1; Module 0;
     ```
 
-2. **Home Assistant**  
-   Add the [Home Assistant MQTT integration](https://www.home-assistant.io/integrations/mqtt/) properly configured and working.
 3. **Home Assistant**  
+   Add the [Home Assistant MQTT integration](https://www.home-assistant.io/integrations/mqtt/) properly configured and working.
+4. **Home Assistant**  
    Add `ha_neopool_mqtt_package.yaml` as [Home Assistant package](https://www.home-assistant.io/docs/configuration/packages/). Check [HA docs]((https://www.home-assistant.io/docs/configuration/packages/)) on how to configure HA for package usage.  
    This integration will not create a device, only entities. To check if the `ha_neopool_mqtt_package.yaml` is working, go to HA "Settings", "Devices & services", "Entities" and search for the entities "neopool_mqtt".
-4. **Home Assistant**  
-   Add the [HACS (Home Assistant Community Store)](https://hacs.xyz/), if not already done.
 5. **Home Assistant**  
+   Add the [HACS (Home Assistant Community Store)](https://hacs.xyz/), if not already done.
+6. **Home Assistant**  
    The user interface uses the following cards, which are available via HACS and which you must first install:
    - [layout-card](https://github.com/thomasloven/lovelace-layout-card)
    - [mini-graph-card](https://github.com/kalkih/mini-graph-card)
@@ -122,7 +123,7 @@ In case you don't use the provided `user_config_override.h` file, you'll need to
    - [mushroom](https://github.com/piitaya/lovelace-mushroom) (for the pc/notebook layout only)
    - [stack-in-card](https://github.com/custom-cards/stack-in-card) (for the pc/notebook layout only)
    - [text-divider-row](https://github.com/iantrich/text-divider-row) (for the pc/notebook layout only)
-6. **Home Assistant**  
+7. **Home Assistant**  
    Add one of the two provided lovelace UI `ha_neopool_mqtt_lovelace*.yaml`.  
    The lovelace UI yaml files here are extracted from the raw lovelace file. To use it edit the raw lovelace config within your HA Dashboard and paste the contents of one of the yaml file below the top word `views:`. Select one of the two possible lovelace files:
     - `ha_neopool_mqtt_lovelace.yaml` for pc/notebook display resolutions
