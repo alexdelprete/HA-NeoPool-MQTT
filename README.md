@@ -1,8 +1,6 @@
 # HA-NeoPool-MQTT
 
-[![GitHub Repository][repo-shield]][repo]
-[![BuyMeCoffee][buymecoffee-shield]][buymecoffee]
-[![Community Forum][forum-shield]][forum]
+[![GitHub Repository][repo-shield]][repo][![BuyMeCoffee][buymecoffee-shield]][buymecoffee][![Community Forum][forum-shield]][forum]
 
 Home Assistant MQTT integration for Tasmota NeoPool module (ESP32 and ESP8266 devices).
 
