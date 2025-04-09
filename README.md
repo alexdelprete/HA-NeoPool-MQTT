@@ -85,7 +85,7 @@ In case you don't use the provided `user_config_override.h` file, you'll need to
     AtomS3 Lite + Tail485 (GPIO2: NeoPool TX - GPIO1: NeoPool RX)
 
     ```console
-    tbd
+   Template {“NAME”:“AtomS3 Lite + Tail485”,“GPIO”:[0,7008,6976,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],“FLAG”:0,“BASE”:1}
     ```
 
     AtomS3 Lite + Atomic RS485 Base (GPIO6: NeoPool TX - GPIO5: NeoPool RX)
