@@ -2,7 +2,7 @@
 
 This folder contains [Tasmota](https://github.com/arendst/Tasmota) binary files including the [driver for Sugar Valley NeoPool Controller](https://tasmota.github.io/docs/NeoPool/).
 
-The binaries are based on [Tasmota v14.5.0 Ruth](https://github.com/arendst/Tasmota/tree/v14.5.0).
+The binaries are based on [Tasmota v15.0.1 Sharon](https://github.com/arendst/Tasmota/tree/v15.0.1).
 
 ## Files for initial flash
 
